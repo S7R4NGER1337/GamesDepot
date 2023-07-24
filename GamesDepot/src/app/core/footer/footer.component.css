@@ -1,0 +1,29 @@
+footer {
+    margin-top: 0px;
+    background-color: #0071f8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/assets/images/footer-bg.jpg);
+    min-height: 150px;
+    border-radius: 1px 0px 0px 0px;
+  }
+  
+  footer p {
+    text-align: center;
+    line-height: 90px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  footer p a {
+    color: #fff;
+    transition: all .3s;
+    position: relative;
+    z-index: 3;
+  }
+  
+  footer p a:hover {
+    opacity: 0.75;
+  }
+  
