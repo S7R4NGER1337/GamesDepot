@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gamesdepot-53e46": {
+      "hosting": {
+        "GamesDepot": [
+          "gamesdepot1337"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gamesdepot-53e46"
+  }
+}
