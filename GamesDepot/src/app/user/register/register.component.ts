@@ -8,4 +8,12 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
 
+  constructor(private authService:AuthService){}
+
+  email = 'testingregister@gmail.com'
+  password ='testingregister'
+  
+  register(){
+    this.authService.signUp(this.email, this.password)
+  }
 }
