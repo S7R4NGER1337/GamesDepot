@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
-import { addDoc, collection } from 'firebase/firestore';
+import { ApiService } from 'src/app/api.service';
+import { Game } from 'src/app/models/game';
+
 
 @Component({
   selector: 'app-trending',
@@ -10,12 +11,11 @@ import { addDoc, collection } from 'firebase/firestore';
 
 export class TrendingComponent {
   
-  constructor(private fs: Firestore){}
+  constructor(private apiService: ApiService ){}
 
-  addGame(game: any){
-    const collectionInstance = collection(this.fs, 'games')
-    addDoc(collectionInstance, game).then(() => {
-      console.log('Data saved')
-    }).catch((err)=>console.log(err))
+  test: Game = {name: 'da', imageUrl: 'we', description: 'razbrah', price: 1, ownerId: 'dasds'}
+
+  addGame(game: Game){
+    this.apiService.addGame(this.test)
   }
 }
