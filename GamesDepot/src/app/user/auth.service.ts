@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth'
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private fireAuth: AngularFireAuth, private router: Router) {}
 
-  constructor(private fireAuth: AngularFireAuth) { }
-
-  signIn(email: string, password: string){
-    this.fireAuth.signInWithEmailAndPassword(email, password)
+  signUp(email: string, password: string) {
+    this.fireAuth.createUserWithEmailAndPassword(email, password);
   }
 
-  signUp(email: string, password: string){
-    this.fireAuth.createUserWithEmailAndPassword(email, password)
+  signIn(email: string, password: string) {
+    this.fireAuth.signInWithEmailAndPassword(email, password);
+    localStorage.setItem('user', 'truw');
+    this.router.navigate(['/home'])
   }
-  
 }

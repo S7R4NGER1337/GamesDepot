@@ -11,10 +11,22 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { UserModule } from './user/user.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CoreModule } from './core/core.module';
+import { CategoriesComponent } from './categories/categories.component';
+import { CtaComponent } from './home/cta/cta.component';
+import { FeaturesComponent } from './home/features/features.component';
+import { MainHomeComponent } from './home/main-home/main-home.component';
+import { MostPlayedComponent } from './home/most-played/most-played.component';
+import { TrendingComponent } from './home/trending/trending.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategoriesComponent,
+    CtaComponent,
+    FeaturesComponent,
+    MainHomeComponent,
+    MostPlayedComponent,
+    TrendingComponent
   ],
   imports: [
     BrowserModule,
