@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +15,6 @@ export class AuthService {
 
   signIn(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password);
-    localStorage.setItem('user', 'truw');
     this.router.navigate(['/home'])
   }
 }

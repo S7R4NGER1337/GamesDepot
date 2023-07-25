@@ -21,7 +21,7 @@ export class LoginComponent {
 
   login(){
     this.authService.signIn(this.email, this.password)
-    localStorage.setItem('user', JSON.stringify(this.userId));
+    localStorage.setItem('userId', JSON.stringify(this.userId));
   }
   
 }
