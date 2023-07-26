@@ -17,6 +17,7 @@ import { FeaturesComponent } from './home/features/features.component';
 import { MainHomeComponent } from './home/main-home/main-home.component';
 import { MostPlayedComponent } from './home/most-played/most-played.component';
 import { TrendingComponent } from './home/trending/trending.component';
+import { CreateGameComponent } from './create-game/create-game.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TrendingComponent } from './home/trending/trending.component';
     FeaturesComponent,
     MainHomeComponent,
     MostPlayedComponent,
-    TrendingComponent
+    TrendingComponent,
+    CreateGameComponent
   ],
   imports: [
     BrowserModule,
