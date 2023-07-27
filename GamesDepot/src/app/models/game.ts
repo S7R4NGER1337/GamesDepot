@@ -3,5 +3,6 @@ export interface Game {
     imageUrl: string,
     description: string,
     price: number,
-    ownerId: string | undefined,
+    ownerId: string,
+    genre: string
 }

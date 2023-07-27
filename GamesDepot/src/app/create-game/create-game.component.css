@@ -61,7 +61,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-	color: #57b846;
+	color: #ee626b;
 }
 
 /*---------------------------------------------*/
@@ -90,14 +90,24 @@ input {
 	border: none;
 }
 
+select{
+  outline: none;
+  border: none;
+}
+
 textarea {
   outline: none;
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus, input:focus, select:focus {
   border-color: transparent !important;
 }
+
+select::-webkit-select-placeholder { color: #999999; }
+select:-moz-placeholder { color: #999999; }
+select::-moz-placeholder { color: #999999; }
+select:-ms-select-placeholder { color: #999999; }
 
 input::-webkit-input-placeholder { color: #999999; }
 input:-moz-placeholder { color: #999999; }
@@ -196,7 +206,18 @@ input.input1 {
   border-radius: 25px;
   padding: 0 30px;
 }
+
+select{
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px;
+}
+
 input.input1 + .shadow-input1 {
+  border-radius: 25px;
+}
+
+select {
   border-radius: 25px;
 }
 
@@ -205,12 +226,24 @@ textarea.input1 {
   border-radius: 25px;
   padding: 12px 30px;
 }
+textarea.select {
+  min-height: 150px;
+  border-radius: 25px;
+  padding: 12px 30px;
+}
+
 textarea.input1 + .shadow-input1 {
   border-radius: 25px;
 }
 
 /*---------------------------------------------*/
 .wrap-input1 {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+select {
   position: relative;
   width: 100%;
   z-index: 1;
@@ -229,6 +262,16 @@ textarea.input1 + .shadow-input1 {
 }
 
 .input1 {
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+}
+
+.select1 {
   display: block;
   width: 100%;
   background: #e6e6e6;
@@ -285,7 +328,7 @@ textarea.input1 + .shadow-input1 {
   min-width: 193px;
   height: 50px;
   border-radius: 25px;
-  background: #57b846;
+  background: #ee626b;
   font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
@@ -381,6 +424,10 @@ textarea.input1 + .shadow-input1 {
 [ Alert validate ]*/
 
 .validate-input {
+  position: relative;
+}
+
+.select {
   position: relative;
 }
 

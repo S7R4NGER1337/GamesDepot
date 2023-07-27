@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-create-game',
@@ -7,24 +8,42 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-game.component.css']
 })
 export class CreateGameComponent {
+
+  selectedValue: any
+  constructor(private apiService: ApiService){}
+  
+  
+
   createGame(form: NgForm): void{
     if(form.invalid){
       return
     }
 
-    const value: {name: string, imageUrl: string, description: string, price: number,} = form.value
+    const {name, imageUrl, description, price}: {name: string, imageUrl: string, description: string, price: number} = form.value
 
-    if(value.name == '' || value.imageUrl == '' || value.description == '' || value.price <= 0){
+    if(name == '' || imageUrl == '' || description == '' || price <= 0 || this.selectedValue == ''){
+      return
+    }
+
+    
+    
+    const ownerId = localStorage.getItem('user')
+
+    const genre = this.selectedValue
+
+    if(typeof genre!= 'string'){
       return
     }
     
-    console.log(value);
-    
+    this.apiService.addGame({name, imageUrl, description, price, ownerId, genre})
+
     form.setValue({
       name: '',
       imageUrl: '',
       description: '',
       price: '',
+      genre: ''
     })
   }
+
 }

@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private fs: Firestore) { }
 
-  addGame(game: Game){
+  addGame(game: {}){
     const collectionInstance = collection(this.fs, 'games')
     addDoc(collectionInstance, game).then(() => {
       console.log('Data saved')

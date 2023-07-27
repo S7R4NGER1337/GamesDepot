@@ -17,4 +17,5 @@ export class AuthService {
     this.fireAuth.signInWithEmailAndPassword(email, password);
     this.router.navigate(['/home'])
   }
+
 }
