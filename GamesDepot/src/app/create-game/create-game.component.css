@@ -161,7 +161,7 @@ iframe {
   justify-content: space-between;
   align-items: center;
 
-  padding: 162px 70px 88px 0148px;
+  padding: 162px 70px 88px 148px;
 }
 
 /*------------------------------------------------------------------
@@ -215,6 +215,17 @@ textarea.input1 + .shadow-input1 {
   width: 100%;
   z-index: 1;
   margin-bottom: 20px;
+}
+
+.validate {
+  position: relative;
+  font-size: 25px;
+  padding: 0px 92px;
+}
+.validate-imageUrl {
+  position: relative;
+  font-size: 25px;
+  padding: 0px 42px;
 }
 
 .input1 {

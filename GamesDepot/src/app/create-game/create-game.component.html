@@ -1,43 +1,97 @@
+<div class="contact1">
+  <div class="container-contact1">
+    <div class="contact1-pic js-tilt" data-tilt="">
+      <img src="../../assets/images/favicon.png" alt="IMG" />
+    </div>
 
-	<div class="contact1">
-		<div class="container-contact1">
-			<div class="contact1-pic js-tilt" data-tilt="">
-				<img src="images/img-01.png" alt="IMG">
-			</div>
+    <form
+      #createForm="ngForm"
+      (ngSubmit)="createGame(createForm)"
+      class="contact1-form validate-form"
+    >
+      <span class="contact1-form-title"> Get in touch </span>
 
-			<form class="contact1-form validate-form">
-				<span class="contact1-form-title">
-					Get in touch
-				</span>
-
-				<div class="wrap-input1 validate-input" data-validate="Name is required">
-					<input class="input1" type="text" name="name" placeholder="Name">
-					<span class="shadow-input1"></span>
-				</div>
-
-				<div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-					<input class="input1" type="text" name="email" placeholder="Email">
-					<span class="shadow-input1"></span>
-				</div>
-
-				<div class="wrap-input1 validate-input" data-validate="Subject is required">
-					<input class="input1" type="text" name="subject" placeholder="Subject">
-					<span class="shadow-input1"></span>
-				</div>
-
-				<div class="wrap-input1 validate-input" data-validate="Message is required">
-					<textarea class="input1" name="message" placeholder="Message"></textarea>
-					<span class="shadow-input1"></span>
-				</div>
-
-				<div class="container-contact1-form-btn">
-					<button class="contact1-form-btn">
-						<span>
-							Send Email
-							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-			</form>
+      <div class="wrap-input1 validate-input">
+        <input
+          class="input1"
+          type="text"
+          name="name"
+          placeholder="name"
+          ngModel
+          required
+		  #name = 'ngModel'
+        />
+        <div *ngIf="name.touched">
+        <div class="validate" *ngIf="name.errors?.['required']">Email is required</div>
 		</div>
-	</div>
+        <span class="shadow-input1"></span>
+      </div>
+
+      <div class="wrap-input1 validate-input">
+        <input
+          class="input1"
+          type="text"
+          name="imageUrl"
+          placeholder="imageUrl"
+          ngModel
+          required
+		  #imageUrl = 'ngModel'
+        />
+		<div *ngIf="imageUrl.touched">
+			<div class="validate-imageUrl" *ngIf="imageUrl.errors?.['required']">ImageUrl is required</div>
+		</div>
+
+        <span class="shadow-input1"></span>
+      </div>
+
+      <div
+        class="wrap-input1 validate-input"
+        data-validate="Subject is required"
+      >
+        <input
+          class="input1"
+          type="number"
+          name="price"
+          placeholder="price in $"
+          ngModel
+		  required
+		  #priceValue
+		  #price = 'ngModel'
+        />
+		<div *ngIf="price.touched">
+			<div class="validate" *ngIf="price.errors?.['required']">Price is required</div>
+			<div class="validate" >Price is required</div>
+		</div>
+
+        <span class="shadow-input1"></span>
+      </div>
+
+      <div
+        class="wrap-input1 validate-input"
+        data-validate="Message is required"
+      >
+        <textarea
+          class="input1"
+          name="description"
+          placeholder="description"
+          ngModel
+		  required
+		  #description = 'ngModel'
+        ></textarea>
+		<div *ngIf="description.touched">
+			<div class="validate-imageUrl" *ngIf="description.errors?.['required']">Description is required</div>
+		</div>
+        <span class="shadow-input1"></span>
+      </div>
+
+      <div class="container-contact1-form-btn">
+        <button class="contact1-form-btn">
+          <span>
+            Send Email
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -18,6 +18,7 @@ import { MainHomeComponent } from './home/main-home/main-home.component';
 import { MostPlayedComponent } from './home/most-played/most-played.component';
 import { TrendingComponent } from './home/trending/trending.component';
 import { CreateGameComponent } from './create-game/create-game.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CreateGameComponent } from './create-game/create-game.component';
     AppRoutingModule,
     UserModule,
     CoreModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
