@@ -22,7 +22,7 @@
 		  #name = 'ngModel'
         />
         <div *ngIf="name.touched">
-        <div class="validate" *ngIf="name.errors?.['required']">Email is required</div>
+        <div class="validate" *ngIf="name.errors?.['required']">Name is required</div>
 		</div>
         <span class="shadow-input1"></span>
       </div>
@@ -60,7 +60,6 @@
         />
 		<div *ngIf="price.touched">
 			<div class="validate" *ngIf="price.errors?.['required']">Price is required</div>
-			<div class="validate" >Price is required</div>
 		</div>
 
         <span class="shadow-input1"></span>
@@ -87,7 +86,7 @@
       <div class="container-contact1-form-btn">
         <button class="contact1-form-btn">
           <span>
-            Send Email
+            Create Game
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </span>
         </button>
