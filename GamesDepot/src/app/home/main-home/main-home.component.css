@@ -1,0 +1,61 @@
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+  background: #0071f8;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #0071f8;
+  color: #fff;
+}
+
+.section {
+  margin-top: 120px;
+}
+
+.section-heading {
+  margin-bottom: 70px;
+}
+
+.section-heading h2 {
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-top: 20px;
+  line-height: 44px;
+}
+
+.section-heading h2 em {
+  font-style: normal;
+  color: #0071f8;
+}
+
+.section-heading h6 {
+  color: #ee626b;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.main-button a {
+  display: inline-block;
+  background-color: #ee626b;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  height: 50px;
+  line-height: 50px;
+  padding: 0px 30px;
+  border-radius: 25px;
+  transition: all .3s;
+}
+
+.main-button a:hover {
+  background-color: #0071f8;
+  color: #fff;
+}
