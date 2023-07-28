@@ -11,9 +11,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
-
-  gameData!: Observable<any>
-
   constructor(private fs: Firestore, private router: Router) {
     
   }
@@ -28,15 +25,90 @@ export class ApiService {
   }
 
   async getActionGames(){
-
+    const arr: any = []
     const app = initializeApp(environment.firebase)
     const db = getFirestore(app)
     const q = query(collection(db, 'games'), where('genre', '==', 'Action'))
-
     const snapshot = await getDocs(q)
+    
     snapshot.forEach((doc) => {
-      console.log(doc.data())
+      const data = doc.data()
+      arr.push(data)
+    })
+    const randomNumber = Math.floor(Math.random() * snapshot.size)
+    const randomGame = arr[randomNumber]
+
+    return randomGame   
+  }
+
+  async getAdventureGame(){
+    const arr: any = []
+    const app = initializeApp(environment.firebase)
+    const db = getFirestore(app)
+    const q = query(collection(db, 'games'), where('genre', '==', 'Adventure'))
+    const snapshot = await getDocs(q)
+    
+    snapshot.forEach((doc) => {
+      const data = doc.data()
+      arr.push(data)
+    })
+    const randomNumber = Math.floor(Math.random() * snapshot.size)
+    const randomGame = arr[randomNumber]
+
+    return randomGame  
+  }
+
+  async getStrategyGame(){
+    const arr: any = []
+    const app = initializeApp(environment.firebase)
+    const db = getFirestore(app)
+    const q = query(collection(db, 'games'), where('genre', '==', 'Strategy'))
+    const snapshot = await getDocs(q)
+    
+    snapshot.forEach((doc) => {
+      const data = doc.data()
+      arr.push(data)
     })
 
+    const randomNumber = Math.floor(Math.random() * snapshot.size)
+    const randomGame = arr[randomNumber]
+
+    return randomGame  
+  }
+
+  async getRacingGame(){
+    const arr: any = []
+    const app = initializeApp(environment.firebase)
+    const db = getFirestore(app)
+    const q = query(collection(db, 'games'), where('genre', '==', 'Racing'))
+    const snapshot = await getDocs(q)
+    
+    snapshot.forEach((doc) => {
+      const data = doc.data()
+      arr.push(data)
+    })
+    
+    const randomNumber = Math.floor(Math.random() * snapshot.size)
+    const randomGame = arr[randomNumber]
+
+    return randomGame  
+  }
+
+  async getSportsGame(){
+    const arr: any = []
+    const app = initializeApp(environment.firebase)
+    const db = getFirestore(app)
+    const q = query(collection(db, 'games'), where('genre', '==', 'Sport-Games'))
+    const snapshot = await getDocs(q)
+    
+    snapshot.forEach((doc) => {
+      const data = doc.data()
+      arr.push(data)
+    })
+    
+    const randomNumber = Math.floor(Math.random() * snapshot.size)
+    const randomGame = arr[randomNumber]
+
+    return randomGame  
   }
 }
