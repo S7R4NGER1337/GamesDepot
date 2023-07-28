@@ -39,7 +39,7 @@ export class ApiService {
       arr.push(data)
     })
     
-    const randomNumber = Math.floor(Math.random() * snapshot.size)
+    const randomNumber = Math.floor(Math.random() * snapshot.size) 
     const randomGame = arr[randomNumber]
 
     return randomGame  

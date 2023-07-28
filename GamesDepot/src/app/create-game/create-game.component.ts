@@ -27,7 +27,7 @@ export class CreateGameComponent {
 
     
     
-    const ownerId = localStorage.getItem('user')
+    const ownerId = localStorage.getItem('userId')
 
     const genre = this.selectedValue
 

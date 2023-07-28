@@ -13,8 +13,8 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private afAuth: AngularFireAuth){}
 
-  email = 'proba@gmail.com'
-  password ='testingregister'
+  email = 'iLoveMyJob@gmail.com'
+  password ='loaclhost4200'
 
   auth = getAuth();
   userId = this.auth.currentUser?.uid

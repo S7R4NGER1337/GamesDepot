@@ -10,8 +10,8 @@ export class RegisterComponent {
 
   constructor(private authService:AuthService){}
 
-  email = 'testingregister@gmail.com'
-  password ='testingregister'
+  email = 'iLoveMyJob@gmail.com'
+  password ='loaclhost4200'
   
   register(){
     this.authService.signUp(this.email, this.password)
