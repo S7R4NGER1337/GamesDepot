@@ -19,6 +19,7 @@ import { MostPlayedComponent } from './home/most-played/most-played.component';
 import { TrendingComponent } from './home/trending/trending.component';
 import { CreateGameComponent } from './create-game/create-game.component';
 import { FormsModule } from '@angular/forms';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { FormsModule } from '@angular/forms';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
