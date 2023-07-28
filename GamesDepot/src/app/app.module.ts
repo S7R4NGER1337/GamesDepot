@@ -11,7 +11,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { UserModule } from './user/user.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CoreModule } from './core/core.module';
-import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesComponent } from './home/categories/categories.component';
 import { CtaComponent } from './home/cta/cta.component';
 import { FeaturesComponent } from './home/features/features.component';
 import { MainHomeComponent } from './home/main-home/main-home.component';
