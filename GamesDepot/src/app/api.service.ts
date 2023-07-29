@@ -25,8 +25,6 @@ export class ApiService {
   }
 
 
-
-
   async getRandomGame(category: string){
     const arr: any = []
     const app = initializeApp(environment.firebase)
