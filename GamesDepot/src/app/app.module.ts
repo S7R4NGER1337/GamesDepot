@@ -45,7 +45,7 @@ import { ApiService } from './api.service';
     provideStorage(() => getStorage())
   ],
   providers: [
-    ApiService
+    ApiService,
   ],
   bootstrap: [AppComponent]
 })

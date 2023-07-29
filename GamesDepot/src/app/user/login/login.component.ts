@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth } from 'firebase/auth';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -12,16 +13,20 @@ import { getAuth } from 'firebase/auth';
 export class LoginComponent {
 
   constructor(private authService: AuthService, private afAuth: AngularFireAuth){}
+  
 
-  email = 'iLoveMyJob@gmail.com'
-  password ='loaclhost4200'
+  login(form: NgForm): void{
+    if(form.invalid){
+      return
+    }
 
-  auth = getAuth();
-  userId = this.auth.currentUser?.uid
+    const {email, pass} = form.value
+    
+    if(email == '' || pass == ''){
+      return
+    }
 
-  login(){
-    this.authService.signIn(this.email, this.password)
-    localStorage.setItem('userId', JSON.stringify(this.userId));
+    this.authService.login(email, pass)
   }
   
 }
