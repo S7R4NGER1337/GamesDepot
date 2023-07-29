@@ -31,7 +31,7 @@ export class AuthService {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        this.postUserIdInDb(user.uid)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -49,7 +49,6 @@ export class AuthService {
         this.router.navigate(['/home'])
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
       });
