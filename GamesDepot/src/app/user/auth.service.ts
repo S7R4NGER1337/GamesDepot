@@ -13,25 +13,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private fireAuth: AngularFireAuth, private router: Router, private fs: Firestore) {}
-
-  signUp(email: string, password: string) {
-    this.fireAuth.createUserWithEmailAndPassword(email, password);
-  }
-
-  signIn(email: string, password: string) {
-    this.fireAuth.signInWithEmailAndPassword(email, password).then((res) => {
-      console.log('log this' + res.user?.getIdToken);
-    });
-    this.router.navigate(['/home']);
-  }
+  constructor(private router: Router, private fs: Firestore) {}
 
   register(email: string, password: string) {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;    
-        localStorage.setItem('userID', user.uid)
+        localStorage.setItem('userId', user.uid)
         this.postUserIdInDb(user.uid)
       })
       .catch((error) => {
@@ -46,13 +35,17 @@ export class AuthService {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        localStorage.setItem('userID', user.uid);
+        localStorage.setItem('userId', user.uid);
         this.router.navigate(['/home'])
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
+  }
+
+  logout(): void {
+    localStorage.removeItem('userId')
   }
 
   async isThisUserExisting(uid: string | null):Promise<boolean> {

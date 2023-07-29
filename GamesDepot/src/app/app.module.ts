@@ -20,6 +20,7 @@ import { TrendingComponent } from './home/trending/trending.component';
 import { CreateGameComponent } from './create-game/create-game.component';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ApiService } from './api.service';
   ],
   providers: [
     ApiService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

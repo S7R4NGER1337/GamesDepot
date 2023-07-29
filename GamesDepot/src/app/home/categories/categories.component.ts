@@ -21,7 +21,7 @@ export class CategoriesComponent {
     this.getImages();
   }
 
-  getImages() {
+  getImages(): void {
     const gamesArr = ['Action', 'Adventure', 'Strategy', 'Racing', 'SportGames'];
     gamesArr.map((game) => {
         this.apiService.getRandomGame(game).then((res) => {

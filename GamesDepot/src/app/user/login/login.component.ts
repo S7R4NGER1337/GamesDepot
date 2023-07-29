@@ -28,7 +28,7 @@ export class LoginComponent {
 
     this.authService.login(email, pass)
 
-    // const token: string | null = localStorage.getItem('userID')
+    // const token: string | null = localStorage.getItem('userId')
     // this.authService.isThisUserExisting(token)
   }
   
