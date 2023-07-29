@@ -30,7 +30,8 @@ export class AuthService {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        const user = userCredential.user;    
+        localStorage.setItem('userID', user.uid)
         this.postUserIdInDb(user.uid)
       })
       .catch((error) => {

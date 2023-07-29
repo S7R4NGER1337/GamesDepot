@@ -10,10 +10,10 @@ export class RegisterComponent {
 
   constructor(private authService:AuthService){}
 
-  email = 'iLoveMyJob@gmail.com'
-  password ='loaclhost4200'
+  email = 'chechingNewFunctionality@gamil.com'
+  password ='areWe6chars'
   
   register(){
-    this.authService.signUp(this.email, this.password)
+    this.authService.register(this.email, this.password)
   }
 }
