@@ -22,7 +22,6 @@ export class CurrentGameComponent implements OnInit{
 
     this.apiService.getGameById(gameId).then((res) => {
       this.game = res   
-      console.log(this.game);
     })
 
   }

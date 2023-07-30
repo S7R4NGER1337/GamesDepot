@@ -28,10 +28,11 @@ export class ApiService {
     const app = initializeApp(environment.firebase);
     const db = getFirestore(app);
     const q = query(collection(db, 'games'), where('genre', '==', category));
-    const snapshot = await getDocs(q);
+    const snapshot = await getDocs(q); 
     snapshot.forEach((doc) => {
+      const id = doc.id
       const data = doc.data();
-      arr.push(data);
+      arr.push([id, data]);
     });
 
     const randomNumber = Math.floor(Math.random() * snapshot.size);

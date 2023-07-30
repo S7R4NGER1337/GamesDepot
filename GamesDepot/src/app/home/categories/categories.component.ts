@@ -15,6 +15,14 @@ export class CategoriesComponent {
     SportGames: '',
   };
 
+  ids: any = {
+    Action: '',
+    Adventure: '',
+    Strategy: '',
+    Racing: '',
+    SportGames: '',
+  }
+  
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -25,7 +33,8 @@ export class CategoriesComponent {
     const gamesArr = ['Action', 'Adventure', 'Strategy', 'Racing', 'SportGames'];
     gamesArr.map((game) => {
         this.apiService.getRandomGame(game).then((res) => {
-          this.images[game] = res.imageUrl
+          this.images[game] = res[1].imageUrl
+          this.ids[game] = res[0]
       });
     });
   }
