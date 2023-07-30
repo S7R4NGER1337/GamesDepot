@@ -6,6 +6,28 @@ import { ApiService } from 'src/app/api.service';
   templateUrl: './main-home.component.html',
   styleUrls: ['./main-home.component.css']
 })
-export class MainHomeComponent{
+export class MainHomeComponent implements OnInit{
 
+  gameObj: any = {
+    image: '',
+    id: '',
+    price: 0
+  }
+  constructor(private apiService: ApiService){}
+
+  ngOnInit(): void {
+    this.getRandomGame()
+  }
+
+  getRandomGame():void{
+    const gamesArr = ['Action', 'Adventure', 'Strategy', 'Racing', 'SportGames']
+    const randomNumber = Math.floor(Math.random() * 5);
+    const randomGame = gamesArr[randomNumber];
+
+    this.apiService.getRandomGame(randomGame).then(res => {
+      this.gameObj.image = res[1].imageUrl
+      this.gameObj.id = res[0]
+      this.gameObj.price = res[1].price
+    })
+  }
 }
