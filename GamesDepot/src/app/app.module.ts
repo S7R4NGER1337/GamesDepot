@@ -21,6 +21,7 @@ import { CreateGameComponent } from './create-game/create-game.component';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 import { AuthService } from './user/auth.service';
+import { CurrentGameComponent } from './current-game/current-game.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AuthService } from './user/auth.service';
     MainHomeComponent,
     MostPlayedComponent,
     TrendingComponent,
-    CreateGameComponent
+    CreateGameComponent,
+    CurrentGameComponent
   ],
   imports: [
     BrowserModule,

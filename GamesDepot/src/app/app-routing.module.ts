@@ -4,13 +4,15 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { CreateGameComponent } from './create-game/create-game.component';
 import { MainHomeComponent } from './home/main-home/main-home.component';
+import { CurrentGameComponent } from './current-game/current-game.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: MainHomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'create', component: CreateGameComponent}
+  { path: 'create', component: CreateGameComponent},
+  { path: ':gameId', component: CurrentGameComponent}
 ];
 
 @NgModule({
