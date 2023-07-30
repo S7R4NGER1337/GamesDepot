@@ -14,15 +14,19 @@ export class CurrentGameComponent implements OnInit{
 
   ngOnInit(): void {
     this.getGame()
+    this.addView()
   }
 
   getGame(): void {
-    
     const gameId = this.AR.snapshot.params['gameId']
-
     this.apiService.getGameById(gameId).then((res) => {
       this.game = res   
     })
-
   }
+
+  addView(): void {
+    const gameId = this.AR.snapshot.params['gameId']
+    this.apiService.addView(gameId)
+  }
+
 }

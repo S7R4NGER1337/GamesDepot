@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where } from 'firebase/firestore';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
@@ -48,5 +48,20 @@ export class ApiService {
     const data = docSnap.data()
 
     return data
+  }
+
+  async addView(id: string){
+    const db = getFirestore()
+    const docRef = doc(db, "games", id)
+    let myObj: any = {}
+
+   await this.getGameById(id).then((res) => {
+      myObj = res
+    })
+
+    const update = {views: Number(myObj.views) + 1}
+
+     updateDoc(docRef, update)
+
   }
 }
