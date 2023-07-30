@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, updateDoc, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, orderBy, query, updateDoc, where } from 'firebase/firestore';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
@@ -48,6 +48,26 @@ export class ApiService {
     const data = docSnap.data()
 
     return data
+  }
+
+  async getTrendingGames() {
+    const arr: any = []
+    let games: any = []
+    const app = initializeApp(environment.firebase);
+    const db = getFirestore(app);
+    const q = query(collection(db, 'games'), orderBy('views', 'desc'));
+    const snapshot = await getDocs(q); 
+    
+    snapshot.forEach((doc) => {
+      const id = doc.id
+      const data = doc.data();
+      data['id'] = id
+      arr.push(data) 
+      games = arr.slice(0, 4)
+      
+    });
+   
+    return games
   }
 
   async addView(id: string){
