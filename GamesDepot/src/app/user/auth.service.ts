@@ -36,12 +36,13 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         localStorage.setItem('userId', user.uid);
-        this.router.navigate(['/home'])
+        this.router.navigate([''])
+        location.reload()
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
-      });
+      }); 
   }
 
   logout(): void {
