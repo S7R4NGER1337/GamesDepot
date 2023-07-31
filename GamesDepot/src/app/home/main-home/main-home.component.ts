@@ -8,11 +8,7 @@ import { ApiService } from 'src/app/api.service';
 })
 export class MainHomeComponent implements OnInit{
 
-  gameObj: any = {
-    image: '',
-    id: '',
-    price: 0
-  }
+  gameObj: any = {}
   constructor(private apiService: ApiService){}
 
   ngOnInit(): void {
@@ -25,9 +21,11 @@ export class MainHomeComponent implements OnInit{
     const randomGame = gamesArr[randomNumber];
 
     this.apiService.getRandomGame(randomGame).then(res => {
-      this.gameObj.image = res[1].imageUrl
-      this.gameObj.id = res[0]
-      this.gameObj.price = res[1].price
+    
+      res.forEach(game => {
+        this.gameObj = game
+        console.log(game);
+      })
     })
   }
 }
