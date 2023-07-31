@@ -9,9 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(
-    private fs: Firestore,
-    private router: Router,) {}
+  constructor( private fs: Firestore, private router: Router,) {}
 
   addGame(game: {}) {
     const collectionInstance = collection(this.fs, 'games');

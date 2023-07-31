@@ -17,11 +17,11 @@ import { FeaturesComponent } from './home/features/features.component';
 import { MainHomeComponent } from './home/main-home/main-home.component';
 import { MostPlayedComponent } from './home/most-played/most-played.component';
 import { TrendingComponent } from './home/trending/trending.component';
-import { CreateGameComponent } from './create-game/create-game.component';
+import { CreateGameComponent } from './game/create-game/create-game.component';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 import { AuthService } from './user/auth.service';
-import { CurrentGameComponent } from './current-game/current-game.component';
+import { CurrentGameComponent } from './game/current-game/current-game.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { SharedModule } from './shared/shared.module';
 
