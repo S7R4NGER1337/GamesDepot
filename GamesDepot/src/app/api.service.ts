@@ -32,12 +32,12 @@ export class ApiService {
     snapshot.forEach((doc) => {
       const id = doc.id
       const data = doc.data();
-      arr.push([id, data]);
+      data['id'] = id
+      arr.push(data)
     });
 
     const randomNumber = Math.floor(Math.random() * snapshot.size);
-    const randomGame = arr[randomNumber];
-
+    const randomGame = [arr[randomNumber]];
     return randomGame;
   }
 

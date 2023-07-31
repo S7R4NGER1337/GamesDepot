@@ -7,21 +7,7 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent {
-  images: any = {
-    Action: '',
-    Adventure: '',
-    Strategy: '',
-    Racing: '',
-    SportGames: '',
-  };
-
-  ids: any = {
-    Action: '',
-    Adventure: '',
-    Strategy: '',
-    Racing: '',
-    SportGames: '',
-  }
+  games: any = []
   
   constructor(private apiService: ApiService) {}
 
@@ -32,9 +18,10 @@ export class CategoriesComponent {
   getImages(): void {
     const gamesArr = ['Action', 'Adventure', 'Strategy', 'Racing', 'SportGames'];
     gamesArr.map((game) => {
-        this.apiService.getRandomGame(game).then((res) => {
-          this.images[game] = res[1].imageUrl
-          this.ids[game] = res[0]
+        this.apiService.getRandomGame(game).then((res) => {         
+          res.forEach((game) => {
+            this.games.push(game)
+          })
       });
     });
   }

@@ -7,46 +7,16 @@
             <h2>Top Categories</h2>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
+
+        <div *ngFor="let game of games" class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Action</h4>
+            <h4>{{game.genre}}</h4>
             <div class="thumb">
-              <a routerLink="/{{ids.Action}}"><img src="{{images.Action}}"  width="350" height="300"></a>
+              <a routerLink="test"><img src="{{game.imageUrl}}"  width="350" height="300"></a>
             </div>
           </div>
         </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Adventure</h4>
-            <div class="thumb">
-              <a routerLink="/{{ids.Adventure}}"><img src="{{images.Adventure}}"  width="350" height="300"></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Strategy</h4>
-            <div class="thumb">
-              <a routerLink="/{{ids.Strategy}}"><img src="{{images.Strategy}}"  width="350" height="300"></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Racing</h4>
-            <div class="thumb">
-              <a routerLink="/{{ids.Racing}}"><img src="{{images.Racing}}"  width="350" height="300"></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>SportGames</h4>
-            <div class="thumb">
-              <a routerLink="/{{ids.SportGames}}"><img src="{{images.SportGames}}"  width="350" height="300"></a>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
-  </div>
+</div>
