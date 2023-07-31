@@ -23,6 +23,7 @@ import { ApiService } from './api.service';
 import { AuthService } from './user/auth.service';
 import { CurrentGameComponent } from './current-game/current-game.component';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -35,10 +36,10 @@ import { LoaderComponent } from './shared/loader/loader.component';
     TrendingComponent,
     CreateGameComponent,
     CurrentGameComponent,
-    LoaderComponent
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     UserModule,
     CoreModule,
