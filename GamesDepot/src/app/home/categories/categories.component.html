@@ -8,13 +8,21 @@
           </div>
         </div>
 
+        <div *ngIf="isLoading">
+          <app-loader />
+        </div>
+        
         <div *ngFor="let game of games" class="col-lg col-sm-6 col-xs-12">
+
           <div class="item">
+            <div *ngIf="!isLoading">
             <h4>{{game.genre}}</h4>
             <div class="thumb">
               <a routerLink="test"><img src="{{game.imageUrl}}"  width="350" height="300"></a>
             </div>
           </div>
+          
+        </div>
         </div>
         
       </div>

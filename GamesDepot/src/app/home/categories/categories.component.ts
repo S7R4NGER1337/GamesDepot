@@ -8,7 +8,8 @@ import { ApiService } from 'src/app/api.service';
 })
 export class CategoriesComponent {
   games: any = []
-  
+  isLoading: boolean = true
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class CategoriesComponent {
           res.forEach((game) => {
             this.games.push(game)
           })
+          this.isLoading = false
       });
     });
   }

@@ -11,8 +11,9 @@ import { ApiService } from 'src/app/api.service';
 })
 
 export class TrendingComponent implements OnInit{
-
   trendingGames = []
+  isLoading: boolean = true;
+
   constructor(private apiService: ApiService){}
 
   ngOnInit(): void {
@@ -23,6 +24,7 @@ export class TrendingComponent implements OnInit{
   getTrendingGames() {
     this.apiService.getTrendingGames().then(res => {
       this.trendingGames = res
+      this.isLoading = false
     })
   }
 }

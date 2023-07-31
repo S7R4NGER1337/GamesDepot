@@ -3,8 +3,7 @@
     --front-color: #ee626b;
     --back-color: #62abff;
     --text-color: #414856;
-    width: 500px;
-    height: 500px;
+    height: 450px;
     border-radius: 50px;
     position: relative;
     display: flex;

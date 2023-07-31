@@ -13,9 +13,13 @@
           </div>
         </div>
 
+        <div *ngIf="isLoading">
+          <app-loader />
+        </div>
 
         <div *ngFor="let game of trendingGames" class="col-lg-3 col-md-6">
-          <div class="item">
+
+          <div *ngIf="!isLoading" class="item">
             <div class="thumb">
               <a routerLink="/{{game['id']}}"><img src="{{game['imageUrl']}}" width="350" height="400" alt=""></a>
               <span class="price">${{game['price']}}</span>

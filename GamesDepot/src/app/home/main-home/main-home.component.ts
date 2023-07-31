@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/api.service';
 export class MainHomeComponent implements OnInit{
 
   gameObj: any = {}
-  isLoading = true
+  isLoading: boolean = true
 
   constructor(private apiService: ApiService){}
 
