@@ -45,10 +45,10 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('userId')
+    localStorage.clear()
   }
 
-  async isThisUserExisting(uid: string | null):Promise<boolean> {
+  async isThisUserExisting(uid: string | null) {
     const arr: any = []
     const app = initializeApp(environment.firebase)
     const db = getFirestore(app)
@@ -63,6 +63,7 @@ export class AuthService {
       return false
     }
 
+    
     return true
   }
 
