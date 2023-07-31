@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 import { AuthService } from './user/auth.service';
 import { CurrentGameComponent } from './current-game/current-game.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CurrentGameComponent } from './current-game/current-game.component';
     MostPlayedComponent,
     TrendingComponent,
     CreateGameComponent,
-    CurrentGameComponent
+    CurrentGameComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

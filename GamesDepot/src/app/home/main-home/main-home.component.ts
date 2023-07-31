@@ -9,6 +9,8 @@ import { ApiService } from 'src/app/api.service';
 export class MainHomeComponent implements OnInit{
 
   gameObj: any = {}
+  isLoading = true
+
   constructor(private apiService: ApiService){}
 
   ngOnInit(): void {
@@ -24,8 +26,8 @@ export class MainHomeComponent implements OnInit{
     
       res.forEach(game => {
         this.gameObj = game
-        console.log(game);
       })
+      this.isLoading = false
     })
   }
 }
