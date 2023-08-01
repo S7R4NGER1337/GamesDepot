@@ -6,7 +6,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 import { getDatabase, ref, set } from "firebase/database";
-import { addDoc, collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -67,6 +67,23 @@ export class AuthService {
     
     return true
   }
+
+  async getUerDataById(id: string) {
+    const arr: any = [];
+    const app = initializeApp(environment.firebase);
+    const db = getFirestore(app);
+    const q = query(collection(db, 'users'), where('id', '==', id));
+    const snapshot = await getDocs(q);
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      console.log();
+      
+      arr.push(data);
+    });
+
+   return arr
+  }
+
 
   async postUserIdInDb(id: string, name: string){
       const collectionInstance = collection(this.fs, 'users')
