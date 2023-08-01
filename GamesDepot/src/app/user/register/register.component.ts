@@ -17,4 +17,5 @@ export class RegisterComponent {
   register(){
     this.authService.register(this.email, this.password, this.name)
   }
+  
 }

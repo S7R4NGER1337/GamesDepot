@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ApiService } from '../../api.service';
 export class CurrentGameComponent implements OnInit{
   game: any = {}
 
-  constructor(private AR: ActivatedRoute, private apiService: ApiService){}
+  constructor(private AR: ActivatedRoute, private apiService: ApiService, private router: Router){}
 
   ngOnInit(): void {
     this.getGame()
@@ -26,7 +26,7 @@ export class CurrentGameComponent implements OnInit{
 
   addView(): void {
     const gameId = this.AR.snapshot.params['gameId']
-    this.apiService.addView(gameId)
+    this.apiService.addView(gameId).catch(err => this.router.navigate(['home']))
   }
 
 }
