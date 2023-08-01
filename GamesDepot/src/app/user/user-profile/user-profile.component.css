@@ -70,17 +70,17 @@ html
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 800px; /* Adjust this value to control the maximum width of the item container */
+    max-width: 900px; /* Adjust this value to control the maximum width of the item container */
     margin: 30px auto; /* Center the item container horizontally */
 }
 
 .item-card {
-    flex: 0 0 calc(25% - 20px); /* Each item card will take 25% of the width minus 20px for margin */
+    flex: 0 0 calc(15% + 30px); /* Each item card will take 25% of the width minus 20px for margin */
     background-color: transparent; /* make color obrder*/
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 10px; /* Add margin to create space between items */
+    padding:10px;
+    margin: 30px; /* Add margin to create space between items */
     text-align: center; /* Center the text inside the item card */
 }
 

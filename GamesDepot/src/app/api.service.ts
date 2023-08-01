@@ -59,6 +59,25 @@ export class ApiService {
     return data;
   }
 
+  async getGameByOwnerId(id: string) {
+    const arr: any = [];
+    const app = initializeApp(environment.firebase);
+    const db = getFirestore(app);
+    const q = query(collection(db, 'games'), where('ownerId', '==', id));
+    const snapshot = await getDocs(q);
+
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      console.log(data);
+      
+      arr.push(data);
+    });
+
+    return arr;
+  }
+
+
+
   async getTrendingGames() {
     const arr: any = [];
     let games: any = [];
