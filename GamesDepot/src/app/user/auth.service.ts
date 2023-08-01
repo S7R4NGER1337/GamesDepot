@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 import { getDatabase, ref, set } from "firebase/database";
 import { addDoc, collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
@@ -15,13 +15,13 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   constructor(private router: Router, private fs: Firestore) {}
 
-  register(email: string, password: string) {
+  register(email: string, password: string, name: string): void {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;    
+        const user = userCredential.user;
         localStorage.setItem('userId', user.uid)
-        this.postUserIdInDb(user.uid)
+        this.postUserIdInDb(user.uid, name)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -68,9 +68,9 @@ export class AuthService {
     return true
   }
 
-  async postUserIdInDb(id: string){
+  async postUserIdInDb(id: string, name: string){
       const collectionInstance = collection(this.fs, 'users')
-      await addDoc(collectionInstance, {id}).then(() => {
+      await addDoc(collectionInstance, {id, name}).then(() => {
         console.log('Data saved')
         this.router.navigate(['/'])
       }
