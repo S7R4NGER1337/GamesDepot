@@ -24,7 +24,7 @@ import { AuthService } from './user/auth.service';
 import { CurrentGameComponent } from './game/current-game/current-game.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { SharedModule } from './shared/shared.module';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [

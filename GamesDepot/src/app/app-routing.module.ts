@@ -5,7 +5,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { CreateGameComponent } from './game/create-game/create-game.component';
 import { MainHomeComponent } from './home/main-home/main-home.component';
 import { CurrentGameComponent } from './game/current-game/current-game.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },

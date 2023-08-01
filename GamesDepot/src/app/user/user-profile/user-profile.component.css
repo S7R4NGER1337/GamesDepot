@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #007bff;
+    background-image: url('/assets/images/banner-bg.jpg'); /* Replace "your-background-image-url.jpg" with your actual image URL */
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+    margin: 0; /* Remove default body margin */
+    padding: 0;
+    height: 100%;
+}
+
+html
+{
+ margin:0px;
+ height:100%;
+ width:100%;
+ background:url('/assets/images/banner-bg.jpg')no-repeat center center fixed; 
+ -webkit-background-size:cover;
+ -o-background-size:cover;
+ -moz-background-size:cover;
+ background-size:cover;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    width: 100%;
+    align-items: center;
+}
+
+.profile-card {
+    max-width: 500px;
+    background-color: transparent; /* make color obrder*/
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 150px; /* Center the profile card horizontally */
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.profile-info {
+    font-size: 16px;
+    color: black;
+}
+
+.profile-label {
+    font-weight: bold;
+}
+
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px; /* Adjust this value to control the maximum width of the item container */
+    margin: 30px auto; /* Center the item container horizontally */
+}
+
+.item-card {
+    flex: 0 0 calc(25% - 20px); /* Each item card will take 25% of the width minus 20px for margin */
+    background-color: transparent; /* make color obrder*/
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px; /* Add margin to create space between items */
+    text-align: center; /* Center the text inside the item card */
+}
+
+.item-image {
+    width: 100%;
+    padding-top: 100%; /* Maintain a square aspect ratio */
+    border-radius: 8px;
+    background-color: #ccc;
+}
+
+.item-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
