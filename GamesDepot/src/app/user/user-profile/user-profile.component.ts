@@ -10,7 +10,12 @@ import { ApiService } from 'src/app/api.service';
 })
 export class UserProfileComponent implements OnInit{
 
-  user = {}
+  user = {
+    name: '',
+    email: '',
+    games: 0
+  }
+
   games = []
   constructor(private AR: ActivatedRoute, private AuthService: AuthService, private apiService: ApiService){}
 
@@ -24,6 +29,7 @@ export class UserProfileComponent implements OnInit{
       this.user = res[0]
       this.apiService.getGameByOwnerId(id).then((res) => {
         this.games = res
+        this.user.games = res.length
       })
     }).catch(
 

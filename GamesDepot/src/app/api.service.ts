@@ -68,7 +68,7 @@ export class ApiService {
 
     snapshot.forEach((doc) => {
       const data = doc.data();
-      console.log(data);
+      data['id'] = doc.id
       
       arr.push(data);
     });

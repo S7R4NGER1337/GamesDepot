@@ -1,14 +1,13 @@
 <body style="background-image: url('/assets/images/banner-bg.jpg'); background-size: cover;">
 <div class="container">
     <div class="profile-card">
-        <div class="profile-picture">
-            <!-- You can put the actual profile picture here -->
-        </div>
+
+        <div class="profile-picture"><!-- You can put the actual profile picture here --></div>
         
-        <div class="profile-name">nz</div>
+        <div class="profile-name">{{user.name}}</div>
         <div class="profile-info">
-            <p><span class="profile-label">Email:</span>kur</p>
-            <p><span class="profile-label">Total Games:</span> 50</p>
+            <p><span class="profile-label">Email:</span>{{user.email}}</p>
+            <p><span class="profile-label">Total Games:</span>{{user.games}}</p>
         </div>
         </div>
     </div>
