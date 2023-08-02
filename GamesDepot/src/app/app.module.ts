@@ -10,29 +10,17 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { UserModule } from './user/user.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CoreModule } from './core/core.module';
-import { CategoriesComponent } from './home/categories/categories.component';
-import { CtaComponent } from './home/cta/cta.component';
-import { FeaturesComponent } from './home/features/features.component';
-import { MainHomeComponent } from './home/main-home/main-home.component';
-import { MostPlayedComponent } from './home/most-played/most-played.component';
-import { TrendingComponent } from './home/trending/trending.component';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 import { AuthService } from './user/auth.service';
 import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { HomeModule } from './home/home.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoriesComponent,
-    CtaComponent,
-    FeaturesComponent,
-    MainHomeComponent,
-    MostPlayedComponent,
-    TrendingComponent,
-    // CreateGameComponent,
-    // CurrentGameComponent,
     UserProfileComponent,
   ],
   imports: [
@@ -41,6 +29,7 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     AppRoutingModule,
     UserModule,
     CoreModule,
+    HomeModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
