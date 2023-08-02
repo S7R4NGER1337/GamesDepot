@@ -25,7 +25,7 @@ export class CurrentGameComponent implements OnInit{
     const gameId = this.AR.snapshot.params['gameId']
     this.apiService.getGameById(gameId).then((res) => {
       this.game = res
-      const id = this.game['ownerId'].slice(1, -1)
+      const id = this.game['ownerId']
 
       this.authService.getUerDataById(id).then((res) => {
         this.ownerName = res[0].name      
