@@ -29,7 +29,7 @@
           </div>
 
           <div *ngIf="!isLoading" >
-          <img routerLink="/{{ gameObj.id }}" src="{{ gameObj.imageUrl }}" width="500" height="500" />
+          <img routerLink="/game/{{ gameObj.id }}" src="{{ gameObj.imageUrl }}" width="500" height="500" />
           <span class="price">${{ gameObj.price }}</span>
         </div>
         </div>

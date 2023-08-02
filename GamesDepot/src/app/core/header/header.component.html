@@ -12,7 +12,7 @@
                     <ul class="nav">
                       <li><a href="index.html" class="active">Home</a></li>
                       <li><a href="shop.html">Shop</a></li>
-                      <li *ngIf="isLoged" ><a routerLink="/create" >Create</a></li>
+                      <li *ngIf="isLoged" ><a routerLink="/game/create" >Create</a></li>
                       <li><a href="contact.html">Contact Us</a></li>
                       <li *ngIf="!isLoged"><a routerLink="/register" [ngStyle]="{'background-color':'#ee626b'}" href="#">Sign In</a></li>
                       <li *ngIf="!isLoged"><a routerLink="/login" [ngStyle]="{'background-color':'#ee626b'}" href="#">Log In</a></li>

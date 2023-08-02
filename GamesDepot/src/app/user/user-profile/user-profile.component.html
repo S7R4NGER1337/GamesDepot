@@ -16,7 +16,7 @@
     <div  class="items-container">
         <div *ngFor="let game of games" class="item-card">
 
-                <img routerLink="/{{game['id']}}" src="{{game['imageUrl']}}" width="90" height="250" >
+                <img routerLink="/game/{{game['id']}}" src="{{game['imageUrl']}}" width="90" height="250" >
 
             <div class="item-name">{{game['name']}}</div>
         </div>

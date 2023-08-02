@@ -21,13 +21,13 @@
 
           <div *ngIf="!isLoading" class="item">
             <div class="thumb">
-              <a routerLink="/{{game['id']}}"><img src="{{game['imageUrl']}}" width="350" height="400" alt=""></a>
+              <a routerLink="/game/{{game['id']}}"><img src="{{game['imageUrl']}}" width="350" height="400" alt=""></a>
               <span class="price">${{game['price']}}</span>
             </div>
             <div class="down-content">
               <span class="category">{{game['genre']}}</span>
               <h4>{{game['name']}}</h4>
-              <a routerLink="/{{game['id']}}"><i class="fa fa-shopping-bag"></i></a>
+              <a routerLink="/game/{{game['id']}}"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
