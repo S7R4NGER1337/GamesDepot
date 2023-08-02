@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -17,12 +16,9 @@ import { FeaturesComponent } from './home/features/features.component';
 import { MainHomeComponent } from './home/main-home/main-home.component';
 import { MostPlayedComponent } from './home/most-played/most-played.component';
 import { TrendingComponent } from './home/trending/trending.component';
-import { CreateGameComponent } from './game/create-game/create-game.component';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 import { AuthService } from './user/auth.service';
-import { CurrentGameComponent } from './game/current-game/current-game.component';
-import { LoaderComponent } from './shared/loader/loader.component';
 import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
@@ -35,8 +31,8 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     MainHomeComponent,
     MostPlayedComponent,
     TrendingComponent,
-    CreateGameComponent,
-    CurrentGameComponent,
+    // CreateGameComponent,
+    // CurrentGameComponent,
     UserProfileComponent,
   ],
   imports: [

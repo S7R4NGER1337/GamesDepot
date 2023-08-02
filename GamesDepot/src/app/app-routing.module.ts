@@ -12,8 +12,12 @@ const routes: Routes = [
   { path: 'home', component: MainHomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'create', component: CreateGameComponent},
-  { path: ':gameId', component: CurrentGameComponent},
+  // { path: 'create', component: CreateGameComponent},
+  // { path: ':gameId', component: CurrentGameComponent},
+  { 
+    path: 'game',
+    loadChildren: ()=> import('./game/game.module').then((m) => m.GameModule)
+  },
   { path: 'user/:userId', component: UserProfileComponent}
 ];
 
