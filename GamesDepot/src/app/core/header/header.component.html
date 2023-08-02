@@ -14,8 +14,8 @@
                       <li><a href="shop.html">Shop</a></li>
                       <li *ngIf="isLoged" ><a routerLink="/game/create" >Create</a></li>
                       <li><a href="contact.html">Contact Us</a></li>
-                      <li *ngIf="!isLoged"><a routerLink="/register" [ngStyle]="{'background-color':'#ee626b'}" href="#">Sign In</a></li>
-                      <li *ngIf="!isLoged"><a routerLink="/login" [ngStyle]="{'background-color':'#ee626b'}" href="#">Log In</a></li>
+                      <li *ngIf="!isLoged"><a routerLink="/user/register" [ngStyle]="{'background-color':'#ee626b'}" href="#">Sign In</a></li>
+                      <li *ngIf="!isLoged"><a routerLink="/user/login" [ngStyle]="{'background-color':'#ee626b'}" href="#">Log In</a></li>
                       <li *ngIf="isLoged" ><a (click)="logout()" [ngStyle]="{'background-color':'#ee626b'}" href="#">Log Out</a></li>
 
                   </ul>   
