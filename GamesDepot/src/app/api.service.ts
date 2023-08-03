@@ -51,12 +51,14 @@ export class ApiService {
   }
 
   async getGameById(id: string) {
+    const arr = []
     const db = getFirestore();
     const docRef = doc(db, 'games', id);
     const docSnap = await getDoc(docRef);
     const data = docSnap.data()
+    arr.push(data, id)
 
-    return data;
+    return arr;
   }
 
   async getGameByOwnerId(id: string) {

@@ -24,7 +24,9 @@ export class CurrentGameComponent implements OnInit{
   getGame(): void {
     const gameId = this.AR.snapshot.params['gameId']
     this.apiService.getGameById(gameId).then((res) => {
-      this.game = res
+      this.game = res[0]
+      this.game.id = res[1];
+
       const id = this.game['ownerId']
 
       this.authService.getUerDataById(id).then((res) => {
@@ -39,4 +41,7 @@ export class CurrentGameComponent implements OnInit{
     this.apiService.addView(gameId).catch(err => this.router.navigate(['home']))
   }
 
+  addToCart(id: string, name: string){
+    sessionStorage.setItem(`${name}`, id)
+  }
 }
