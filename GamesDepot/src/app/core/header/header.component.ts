@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/user/auth.service';
 })
 export class HeaderComponent implements OnInit{
   isLoged: boolean = false;
+  isCartShown = false
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -29,4 +31,7 @@ export class HeaderComponent implements OnInit{
     }
   }
   
+  showCart(){
+    this.isCartShown = !this.isCartShown
+  }
 }
