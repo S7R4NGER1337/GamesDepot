@@ -12,9 +12,19 @@
     -o-transition: all .5s ease 0s;
     transition: all .5s ease 0s;
   }
+
+  .main-nav {
+  width: 100%;
+  height: auto;
+  background-color: #0071f8;
+  position: absolute;
+  top: 0px;
+  right: 60px;
+  left: 0px;
+  }
   
   .background-header .logo img {
-    max-width: 110px;
+    max-width: 210px;
     background-color: #0071f8;
   }
   
@@ -30,6 +40,10 @@
     -moz-transition: all .5s ease 0s;
     -o-transition: all .5s ease 0s;
     transition: all .5s ease 0s;
+  }
+
+  .header-area .header-sticky{
+    background-color: #0071f8;
   }
   
   .header-area .main-nav {
@@ -57,7 +71,6 @@
   
   .background-header .main-nav .logo{
     margin-top: 18px;
-    
   }
   
   .header-area .main-nav ul.nav {

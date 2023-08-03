@@ -22,7 +22,6 @@
           <span class="price">${{game.price}}</span>
           <p>{{game.description}}</p>
           <form id="qty" action="#">
-            <input type="qty" class="form-control" id="1" aria-describedby="quantity" placeholder="1">
             <button type="submit" (click)="addToCart(game.id, game.name)" ><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
           </form>
           <ul>

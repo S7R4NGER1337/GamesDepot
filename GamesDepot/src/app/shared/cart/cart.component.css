@@ -17,8 +17,8 @@ body{
     width: 100%;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
-    border: transparent;
-    top:10px;
+    border: white;
+    top:80px;
     left:750px
 }
 @media(max-width:767px){

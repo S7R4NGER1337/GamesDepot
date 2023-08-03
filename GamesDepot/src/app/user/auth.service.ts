@@ -48,6 +48,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.clear()
+    sessionStorage.clear()
   }
 
   async isThisUserExisting(uid: string | null) {
