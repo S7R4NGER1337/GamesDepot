@@ -1,9 +1,10 @@
+import { getLocaleNumberSymbol } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, linkWithPhoneNumber } from 'firebase/auth';
 
 import { getDatabase, ref, set } from "firebase/database";
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore';
@@ -50,22 +51,17 @@ export class AuthService {
   }
 
   async isThisUserExisting(uid: string | null) {
-    const arr: any = []
     const app = initializeApp(environment.firebase)
     const db = getFirestore(app)
     const q = query(collection(db, 'users'), where('id', '==', uid))
     const snapshot = await getDocs(q)
-    snapshot.forEach((doc) => {
-      const data = doc.data()
-      arr.push(data)
-    })
-    
-    if(arr.length === 0){
+
+    if(snapshot.size > 0) {
+      return true
+    } else {
       return false
     }
 
-    
-    return true
   }
 
   async getUerDataById(id: string) {
@@ -92,6 +88,18 @@ export class AuthService {
         this.router.navigate(['/'])
       }
      ).catch((err)=>console.log(err))
+  }
+
+  isLogedin() {
+   const isLocalStorageFull = !!localStorage.getItem('userId')
+   
+   if(isLocalStorageFull){
+    return true
+    
+   } else {
+    return false
+    
+   }
   }
   
 }

@@ -2,11 +2,12 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CurrentGameComponent } from "./current-game/current-game.component";
 import { CreateGameComponent } from "./create-game/create-game.component";
+import { AuthActivate } from "../core/auth.activate";
 
 const routes: Routes = [
     {
         path: 'create',
-        component: CreateGameComponent
+        component: CreateGameComponent,
     },
     {
         path: ':gameId',
