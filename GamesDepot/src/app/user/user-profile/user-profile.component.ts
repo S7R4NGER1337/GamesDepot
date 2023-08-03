@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, booleanAttribute } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit{
   }
 
   games = []
-  constructor(private AR: ActivatedRoute, private AuthService: AuthService, private apiService: ApiService){}
+  constructor(private AR: ActivatedRoute, private authService: AuthService, private apiService: ApiService){}
 
   ngOnInit(): void {
     this.loadContent()
@@ -25,15 +25,14 @@ export class UserProfileComponent implements OnInit{
 
   loadContent():void {
     const id = this.AR.snapshot.params['userId']
-    this.AuthService.getUerDataById(id).then(res => {
+    this.authService.getUerDataById(id).then(res => {
       this.user = res[0]
       this.apiService.getGameByOwnerId(id).then((res) => {
         this.games = res
         this.user.games = res.length
       })
-    }).catch(
-
-    )
+    })
   }
+
 
 }
