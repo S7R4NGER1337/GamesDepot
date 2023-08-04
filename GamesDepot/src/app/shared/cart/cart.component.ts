@@ -78,27 +78,11 @@ export class CartComponent implements OnInit {
         color: 'blue',
       },
       onApprove: (data, actions) => {
-
-        console.log(
-          'onApprove - transaction was approved, but not authorized',
-          data,
-          actions
-        );
-
-        // this.router.navigate(['home'])
-
         actions.order.get().then((details: any) => {
-          console.log(
-            'onApprove - you can get full order details inside onApprove: ',
-            details
-          );
+
         });
       },
       onClientAuthorization: (data) => {
-        console.log(
-          'onClientAuthorization - you should probably inform your server about completed transaction at this point',
-          data
-        );
 
         confirm('yes ?')
         sessionStorage.clear();
