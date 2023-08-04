@@ -20,7 +20,11 @@
 
             <div class="col">TOTAL PRICE</div>
             <div class="col text-right">&euro; {{cartInfo.price}}</div>
-            <button class="btn">CHECKOUT</button>
+            
+            <div class="paypalButton">
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+            </div>
+
             <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
         </div>
     

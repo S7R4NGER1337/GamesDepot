@@ -11,6 +11,12 @@ body{
 .title{
     margin-bottom: 5vh;
 }
+
+.paypalButton{
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
 .card{
     margin: auto;
     max-width: 950px;
@@ -83,7 +89,7 @@ img{
     width: 3.5rem;
 }
 .back-to-shop{
-    margin-top: 4.5rem;
+    margin-top: 10px;
 }
 h5{
     margin-top: 4vh;

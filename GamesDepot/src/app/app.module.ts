@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 import { AuthService } from './user/auth.service';
 import { SharedModule } from './shared/shared.module';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    NgxPayPalModule,
     SharedModule,
     AppRoutingModule,
     CoreModule,
