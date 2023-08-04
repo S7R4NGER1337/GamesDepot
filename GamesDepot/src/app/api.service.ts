@@ -112,4 +112,10 @@ export class ApiService {
 
     updateDoc(docRef, update);
   }
+
+  async updateGame(id: string, data: any) {
+    const db = getFirestore();
+    const docRef = doc(db, 'games', id);
+    await updateDoc(docRef, data)
+  }
 }

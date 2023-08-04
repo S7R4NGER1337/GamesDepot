@@ -5,13 +5,15 @@ import { CurrentGameComponent } from './current-game/current-game.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GameRoutingModule } from './game-routing.module';
+import { EditGameComponent } from './edit-game/edit-game.component';
 
 
 
 @NgModule({
   declarations: [
     CreateGameComponent,
-    CurrentGameComponent
+    CurrentGameComponent,
+    EditGameComponent
   ],
   imports: [
     CommonModule,

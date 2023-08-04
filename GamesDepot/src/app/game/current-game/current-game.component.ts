@@ -11,6 +11,7 @@ import { limitToFirst } from 'firebase/database';
 })
 export class CurrentGameComponent implements OnInit{
   game: any = {}
+  isOwner = false
   ownerName = ''
   ownerId = ''
 
@@ -23,11 +24,16 @@ export class CurrentGameComponent implements OnInit{
 
   getGame(): void {
     const gameId = this.AR.snapshot.params['gameId']
+    const userId = localStorage.getItem('userId')
     this.apiService.getGameById(gameId).then((res) => {
       this.game = res[0]
       this.game.id = res[1];
 
       const id = this.game['ownerId']
+
+      if(userId == id){
+        this.isOwner = true
+      }
 
       this.authService.getUerDataById(id).then((res) => {
         this.ownerName = res[0].name      

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { CurrentGameComponent } from "./current-game/current-game.component";
 import { CreateGameComponent } from "./create-game/create-game.component";
 import { AuthActivate } from "../core/auth.activate";
+import { EditGameComponent } from "./edit-game/edit-game.component";
 
 const routes: Routes = [
     {
@@ -13,6 +14,10 @@ const routes: Routes = [
         path: ':gameId',
         component: CurrentGameComponent
     },
+    {
+        path: 'edit/:gameId',
+        component: EditGameComponent
+    }
 ]
 
 @NgModule({
