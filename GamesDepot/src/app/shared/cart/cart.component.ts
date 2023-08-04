@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   games: any = [];
   cartInfo: any = {};
-  price = 0
+  price = 0;
 
   public payPalConfig?: IPayPalConfig;
-  showSuccess = false
-  showCancel = false
-  showError = false
+  showSuccess = false;
+  showCancel = false;
+  showError = false;
 
   @ViewChild('paymentRef', { static: true }) paymentRef!: ElementRef;
 
@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
         this.games.push(game);
 
         price += game['price'];
-        this.price += game['price']
+        this.price += game['price'];
         gamesCounter++;
         this.cartInfo = { price, gamesCounter };
       });
@@ -75,19 +75,18 @@ export class CartComponent implements OnInit {
       style: {
         layout: 'horizontal',
         label: 'paypal',
-        color: 'blue'
+        color: 'blue',
       },
       onApprove: (data, actions) => {
+
         console.log(
           'onApprove - transaction was approved, but not authorized',
           data,
           actions
         );
-        sessionStorage.clear()
 
-        //TODO alert game codes
-        this.router.navigate(['home'])
-        
+        // this.router.navigate(['home'])
+
         actions.order.get().then((details: any) => {
           console.log(
             'onApprove - you can get full order details inside onApprove: ',
@@ -100,11 +99,18 @@ export class CartComponent implements OnInit {
           'onClientAuthorization - you should probably inform your server about completed transaction at this point',
           data
         );
+
+        confirm('yes ?')
+        sessionStorage.clear();
+        window.location.reload()
+        
+        this.router.navigate(['/home'])
+        
         this.showSuccess = true;
       },
       onCancel: (data, actions) => {
         console.log('OnCancel', data, actions);
-        this.router.navigate(['home'])
+        this.router.navigate(['home']);
         this.showCancel = true;
       },
       onError: (err) => {
