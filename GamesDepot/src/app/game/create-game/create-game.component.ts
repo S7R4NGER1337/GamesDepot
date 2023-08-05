@@ -30,12 +30,13 @@ export class CreateGameComponent {
     const ownerId = localStorage.getItem('userId')
 
     const genre = this.selectedValue
+    const views = 0
 
     if(typeof genre!= 'string'){
       return
     }
     
-    this.apiService.addGame({name, imageUrl, description, price, ownerId, genre})
+    this.apiService.addGame({name, imageUrl, description, price, ownerId, genre, views})
 
     form.setValue({
       name: '',

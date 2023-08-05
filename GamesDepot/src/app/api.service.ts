@@ -107,8 +107,8 @@ export class ApiService {
     await this.getGameById(id).then((res) => {
       myObj = res;
     });
-
-    const update = { views: Number(myObj.views) + 1 };
+    
+    const update = { views: Number(myObj[0].views) + 1 };
 
     updateDoc(docRef, update);
   }
