@@ -26,7 +26,8 @@ import { ShopComponent } from './shop/shop.component';
   ],
   exports: [
     CreateGameComponent,
-    CurrentGameComponent
+    CurrentGameComponent,
+    ShopComponent
   ]
 })
 export class GameModule { }
