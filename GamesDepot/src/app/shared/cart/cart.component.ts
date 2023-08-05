@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 import { Router } from '@angular/router';

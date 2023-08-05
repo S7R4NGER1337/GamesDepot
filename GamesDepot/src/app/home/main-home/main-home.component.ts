@@ -15,6 +15,7 @@ export class MainHomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.getRandomGame()
+    window.scrollTo(0, 0)
   }
 
   getRandomGame():void{

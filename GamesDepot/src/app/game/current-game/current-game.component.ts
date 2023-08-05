@@ -20,6 +20,7 @@ export class CurrentGameComponent implements OnInit{
   ngOnInit(): void {
     this.getGame()
     this.addView()
+    window.scrollTo(0, 0)
   }
 
   getGame(): void {
