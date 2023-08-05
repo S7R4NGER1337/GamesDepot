@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GameRoutingModule } from './game-routing.module';
 import { EditGameComponent } from './edit-game/edit-game.component';
+import { ShopComponent } from './shop/shop.component';
 
 
 
@@ -13,7 +14,8 @@ import { EditGameComponent } from './edit-game/edit-game.component';
   declarations: [
     CreateGameComponent,
     CurrentGameComponent,
-    EditGameComponent
+    EditGameComponent,
+    ShopComponent
   ],
   imports: [
     CommonModule,
