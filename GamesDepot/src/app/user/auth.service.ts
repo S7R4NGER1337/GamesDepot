@@ -73,7 +73,6 @@ export class AuthService {
     const snapshot = await getDocs(q);
     snapshot.forEach((doc) => {
       const data = doc.data();
-      console.log();
       
       arr.push(data);
     });
@@ -85,7 +84,6 @@ export class AuthService {
   async postUserIdInDb(id: string, name: string){
       const collectionInstance = collection(this.fs, 'users')
       await addDoc(collectionInstance, {id, name}).then(() => {
-        console.log('Data saved')
         this.router.navigate(['/'])
       }
      ).catch((err)=>console.log(err))

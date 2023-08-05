@@ -26,7 +26,6 @@ export class ApiService {
     const collectionInstance = collection(this.fs, 'games');
     addDoc(collectionInstance, game)
       .then(() => {
-        console.log('Data saved');
         this.router.navigate(['/']);
       })
       .catch((err) => console.log(err));
@@ -155,8 +154,6 @@ export class ApiService {
     snapshot.forEach((doc) => {
       const data = doc.data();
       data['id'] = doc.id;
-
-      console.log(data);
 
       arr.push(data);
     });
