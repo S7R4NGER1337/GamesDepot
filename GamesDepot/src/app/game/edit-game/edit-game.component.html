@@ -4,40 +4,38 @@
 			<img src="{{game.imageUrl}}" alt="IMG" />
 		</div>
 
-		<form #updateForm="ngForm" (ngSubmit)="updateGame(updateForm)" class="contact1-form validate-form">
+		<form [formGroup]="submitForm" (ngSubmit)="onSubmit()" class="contact1-form validate-form">
 			<span class="contact1-form-title"> Get in touch </span>
 
 			<div class="wrap-input1 validate-input">
-				<input class="input1" type="text" name="name" placeholder={{game.name}} ngModel required #name='ngModel' />
-				<div *ngIf="name.touched">
+				<input class="input1" type="text" name="name" placeholder={{game.name}} formControlName="name" [value]="game.name"/>
+				<!-- <div *ngIf="name.touched">
 					<div class="validate" *ngIf="name.errors?.['required']">Name is required</div>
-				</div>
+				</div> -->
 				<span class="shadow-input1"></span>
 			</div>
 
 			<div class="wrap-input1 validate-input">
-				<input class="input1" type="text" name="imageUrl" placeholder="{{game.imageUrl}}" ngModel required
-					#imageUrl='ngModel' />
-				<div *ngIf="imageUrl.touched">
+				<input class="input1" type="text" name="imageUrl" placeholder="{{game.imageUrl}}" formControlName="imageUrl" [value]="game.imageUrl"/>
+				<!-- <div *ngIf="imageUrl.touched">
 					<div class="validate-imageUrl" *ngIf="imageUrl.errors?.['required']">ImageUrl is required</div>
-				</div>
+				</div> -->
 
 				<span class="shadow-input1"></span>
 			</div>
 
 			<div class="wrap-input1 validate-input" data-validate="Subject is required">
-				<input class="input1" type="number" name="price" placeholder="$ {{game.price}}" ngModel required #priceValue
-					#price='ngModel' />
-				<div *ngIf="price.touched">
+				<input class="input1" type="number" name="price" placeholder="$ {{game.price}}" formControlName="price" [value]="game.price"/>
+				<!-- <div *ngIf="price.touched">
 					<div class="validate" *ngIf="price.errors?.['required']">Price is required</div>
-				</div>
+				</div> -->
 				<span class="shadow-input1"></span>
 			</div>
 
 			
-			<div class="wrap-input1 validate-input" data-validate="Subject is required">
+			<div class="wrap-input1 validate-input" data-validate="Subject is required" >
 				
-				<select id="cars" name="Genre" ngModel required #genre='ngModel' [(ngModel)]="selectedValue">
+				<select id="cars" name="Genre" formControlName="genre" [value]="game.genre">
 					<option value="Action">Action</option>
 					<option value="Adventure">Adventure</option>
 					<option value="Strategy">Strategy</option>
@@ -45,20 +43,19 @@
 					<option value="SportGames">SportGames</option>
 				</select>
 
-				<div *ngIf="genre.touched">
+				<!-- <div *ngIf="genre.touched">
 					<div class="validate" *ngIf="genre.errors?.['required']">genre is required</div>
-				</div>
+				</div> -->
 				<span class="shadow-input1"></span>
 			</div>
 
 
 			<div class="wrap-input1 validate-input" data-validate="Message is required">
-				<textarea class="input1" name="description" placeholder="{{game.description}}" ngModel required
-					#description='ngModel'></textarea>
-				<div *ngIf="description.touched">
+				<textarea class="input1" name="description" placeholder="{{game.description}}" formControlName="description" [value]="game.description"></textarea>
+				<!-- <div *ngIf="description.touched">
 					<div class="validate-imageUrl" *ngIf="description.errors?.['required']">Description is required
 					</div>
-				</div>
+				</div> -->
 				<span class="shadow-input1"></span>
 			</div>
 

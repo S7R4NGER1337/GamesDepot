@@ -117,5 +117,6 @@ export class ApiService {
     const db = getFirestore();
     const docRef = doc(db, 'games', id);
     await updateDoc(docRef, data)
+    this.router.navigate(['game/',id])
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
@@ -10,60 +10,57 @@ import { ApiService } from 'src/app/api.service';
 })
 export class EditGameComponent implements OnInit {
   game: any = {};
-  selectedValue: any;
-
-  constructor(private apiService: ApiService, private AR: ActivatedRoute) {}
-
   id = this.AR.snapshot.params['gameId'];
+
+  constructor(
+    private apiService: ApiService,
+    private AR: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.getGame(this.id);
   }
-  updateGame(form: NgForm): void {
-    if (form.invalid) {
-      return;
-    }
 
-    const {
-      name,
-      imageUrl,
-      description,
-      price,
-    }: { name: string; imageUrl: string; description: string; price: number } =
-      form.value;
+  submitForm = this.formBuilder.group({
+    name: [this.game.name, [Validators.required]],
+    imageUrl: [this.game.imageUrl, [Validators.required]],
+    price: [this.game.price, [Validators.required]],
+    genre: [this.game.genre, [Validators.required]],
+    description: [this.game.description, [Validators.required]],
+  });
 
+  onSubmit(): void {
+    const name = this.submitForm.get('name')?.value;
+    const imageUrl = this.submitForm.get('imageUrl')?.value;
+    const price = this.submitForm.get('price')?.value;
+    const genre = this.submitForm.get('genre')?.value;
+    const description = this.submitForm.get('description')?.value;
     if (
       name == '' ||
       imageUrl == '' ||
-      description == '' ||
-      price <= 0 ||
-      this.selectedValue == ''
+      price == 0 ||
+      genre == '' ||
+      description == ''
     ) {
+      alert("There can't be empty field");
       return;
+    } else {
+      this.apiService.updateGame(this.id, {name, imageUrl, price, genre, description});
     }
-
-    const ownerId = localStorage.getItem('userId');
-
-    const genre = this.selectedValue;
-
-    if (typeof genre != 'string') {
-      return;
-    }
-
-
-
-    form.setValue({
-      name: '',
-      imageUrl: '',
-      description: '',
-      price: '',
-      genre: '',
-    });
   }
 
   getGame(id: string) {
     this.apiService.getGameById(id).then((res) => {
       this.game = res[0];
+
+      this.submitForm = this.formBuilder.group({
+        name: [this.game.name, [Validators.required]],
+        imageUrl: [this.game.imageUrl, [Validators.required]],
+        price: [this.game.price, [Validators.required]],
+        genre: [this.game.genre, [Validators.required]],
+        description: [this.game.description, [Validators.required]],
+      });
     });
   }
 }
