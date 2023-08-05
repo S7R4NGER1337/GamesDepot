@@ -23,7 +23,7 @@ export class TrendingComponent implements OnInit{
 
   getTrendingGames() {
     this.apiService.getTrendingGames().then(res => {
-      this.trendingGames = res  
+      this.trendingGames = res       
       this.isLoading = false
     })
   }

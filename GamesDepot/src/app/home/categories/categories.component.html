@@ -14,10 +14,10 @@
         
         <div *ngFor="let game of games" class="col-lg col-sm-6 col-xs-12">
 
-          <div class="item">
+          <div [routerLink]="['/game/shop']" [queryParams]="{ category: game.genre}" class="item">
             <div *ngIf="!isLoading">
             <h4>{{game.genre}}</h4>
-            <div class="thumb">
+            <div class="thumb" >
               <a routerLink="/game/{{game.id}}"><img src="{{game.imageUrl}}"  width="350" height="300"></a>
             </div>
           </div>

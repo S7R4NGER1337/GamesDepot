@@ -51,12 +51,13 @@ export class ApiService {
   }
 
   async getGameById(id: string) {
-    const arr = []
+    const arr = [];
     const db = getFirestore();
     const docRef = doc(db, 'games', id);
     const docSnap = await getDoc(docRef);
-    const data = docSnap.data()
-    arr.push(data, id)
+    const data = docSnap.data();
+
+    arr.push(data, id);
 
     return arr;
   }
@@ -70,8 +71,8 @@ export class ApiService {
 
     snapshot.forEach((doc) => {
       const data = doc.data();
-      data['id'] = doc.id
-      
+      data['id'] = doc.id;
+
       arr.push(data);
     });
 
@@ -105,7 +106,7 @@ export class ApiService {
     await this.getGameById(id).then((res) => {
       myObj = res;
     });
-    
+
     const update = { views: Number(myObj[0].views) + 1 };
 
     updateDoc(docRef, update);
@@ -114,36 +115,52 @@ export class ApiService {
   async updateGame(id: string, data: any) {
     const db = getFirestore();
     const docRef = doc(db, 'games', id);
-    await updateDoc(docRef, data)
-    this.router.navigate(['game/',id])
+    await updateDoc(docRef, data);
+    this.router.navigate(['game/', id]);
   }
 
-  async getAllGames(page: number){
-    let arr: any = []
+  async getAllGames(page: any) {
+    let arr: any = [];
+    let mainArrLength: any = 0
     const db = getFirestore();
-    const snapshot = await getDocs(collection(db, 'games'))
+    const snapshot = await getDocs(collection(db, 'games'));
     snapshot.forEach((doc) => {
       const id = doc.id;
       const data = doc.data();
       data['id'] = id;
       arr.push(data);
-    })
-    
-    if(page == 1){
-      const data = arr.slice(0, 12)
-        
-        return data
-    }else if(page == 2) {
-      const data = arr.slice(12, 24)
-        
-        return data
-    }else if(page == 3) {
-        const data = arr.slice(24, 36)
-        
-        return data
+    });
+
+    if (page == 1) {
+      const data = arr.slice(0, 12);
+      return data;
+    } else if (page == 2) {
+      const data = arr.slice(12, 24);
+      return data;
+    } else if (page == 3) {
+      const data = arr.slice(24, 36);
+      return data;
     }
+
+  }
+
+  async getGamesByCategory(category: string, page: number){
+    const arr: any = [];
+    const app = initializeApp(environment.firebase);
+    const db = getFirestore(app);
     
+    const q = query(collection(db, 'games'), where('genre', '==', category));
+    const snapshot = await getDocs(q);
     
-    // return arr
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      data['id'] = doc.id;
+
+      console.log(data);
+
+      arr.push(data);
+    });
+
+    return arr;
   }
 }

@@ -19,7 +19,7 @@ export class MainHomeComponent implements OnInit{
   }
 
   getRandomGame():void{
-    const gamesArr = ['Action', 'Adventure', 'Strategy', 'Racing', 'SportGames']
+    const gamesArr = ['action', 'adventure', 'strategy', 'racing', 'sportgames']
     const randomNumber = Math.floor(Math.random() * 5);
     const randomGame = gamesArr[randomNumber];
 

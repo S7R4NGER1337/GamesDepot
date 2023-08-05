@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/user/auth.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/user/auth.service';
 })
 export class HeaderComponent implements OnInit{
   isLoged: boolean = false;
-  isCartShown = false
+  isCartShown = false 
 
   constructor(private authService: AuthService) {}
 

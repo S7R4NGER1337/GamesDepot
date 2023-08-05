@@ -12,25 +12,30 @@
   <div class="section trending">
     <div class="container">
       <ul class="trending-filter">
-        <li>
-          <a class="is_active" href="#!" data-filter="*">Show All</a>
-        </li>
-        <li>
-          <a [routerLink]="['/game/shop']" [queryParams]="{ page: 2}" data-filter=".adv">Adventure</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".str">Strategy</a>
-        </li>
-        <li>
-          <a href="#!" data-filter=".rac">Racing</a>
-        </li>
+        <li *ngIf="!category"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ page: 1}">Show All</a></li>
+        <li *ngIf="category"><a [routerLink]="['/game/shop']" [queryParams]="{ page: 1}">Show All</a></li>
+
+        <li *ngIf="category == 'action'" ><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ category: 'action'}" data-filter=".adv">Action</a></li>
+        <li *ngIf="category != 'action'" ><a [routerLink]="['/game/shop']" [queryParams]="{ category: 'action'}" data-filter=".adv">Action</a></li>
+
+        <li *ngIf="category == 'sportgames'"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ category: 'sportgames'}" data-filter=".adv">SportGames</a></li>
+        <li *ngIf="category != 'sportgames'"><a [routerLink]="['/game/shop']" [queryParams]="{ category: 'sportgames'}" data-filter=".adv">SportGames</a></li>
+
+        <li *ngIf="category == 'adventure'"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ category: 'adventure'}" data-filter=".adv">Adventure</a></li>
+        <li *ngIf="category != 'adventure'"><a [routerLink]="['/game/shop']" [queryParams]="{ category: 'adventure'}" data-filter=".adv">Adventure</a></li>
+
+        <li *ngIf="category == 'strategy'"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ category: 'strategy'}">Strategy</a></li>
+        <li *ngIf="category != 'strategy'"><a [routerLink]="['/game/shop']" [queryParams]="{ category: 'strategy'}">Strategy</a></li>
+
+        <li *ngIf="category == 'racing'"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ category: 'racing'}">Racing</a></li>
+        <li *ngIf="category != 'racing'"><a [routerLink]="['/game/shop']" [queryParams]="{ category: 'racing'}">Racing</a></li>
       </ul>
       <div class="row trending-box">
 
-        <div *ngFor="let game of games" class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
+        <div *ngFor="let game of allGames" class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv">
           <div class="item">
             <div class="thumb">
-              <a routerLink="/game/{{game.id}}"><img src={{game.imageUrl}} height=320px width="300" alt=""></a>
+              <a routerLink="/game/{{game.id}}"><img src={{game.imageUrl}} height=350px width="300" alt=""></a>
               <span class="price">€{{game.price}}</span>
             </div>
             <div class="down-content">
@@ -44,12 +49,15 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <ul class="pagination">
-          <!-- <li><a href="#"> &lt; </a></li> -->
-            <li><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ page: 1}" >1</a></li>
-            <li><a [routerLink]="['/game/shop']" [queryParams]="{ page: 2}" >2</a></li>
-            <li><a [routerLink]="['/game/shop']" [queryParams]="{ page: 3}" >3</a></li>
-            <!-- <li><a href="#"> &gt; </a></li> -->
+          <ul class="pagination">         
+            <li *ngIf="page == 1"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ page: 1}" >1</a></li>
+            <li *ngIf="page != 1"><a [routerLink]="['/game/shop']" [queryParams]="{ page: 1}" >1</a></li>
+
+            <li *ngIf="page == 2"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ page: 2}" >2</a></li>
+            <li *ngIf="page != 2"><a [routerLink]="['/game/shop']" [queryParams]="{ page: 2}" >2</a></li>
+
+            <li *ngIf="page == 3"><a class="is_active" [routerLink]="['/game/shop']" [queryParams]="{ page: 3}" >3</a></li>
+            <li *ngIf="page != 3"><a [routerLink]="['/game/shop']" [queryParams]="{ page: 3}" >3</a></li>
           </ul>
         </div>
       </div>
