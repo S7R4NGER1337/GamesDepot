@@ -10,8 +10,8 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html" class="active">Home</a></li>
-                      <li><a href="shop.html">Shop</a></li>
+                      <li><a routerLink="/home" class="active">Home</a></li>
+                      <li><a [routerLink]="['/game/shop']" [queryParams]="{ page: 1}" >Shop</a></li>
                       <li *ngIf="isLoged" ><a routerLink="/game/create" >Create</a></li>
                       <li><a href="contact.html">Contact Us</a></li>
                       <li *ngIf="!isLoged"><a routerLink="/user/register" [ngStyle]="{'background-color':'#ee626b'}" href="#">Sign In</a></li>

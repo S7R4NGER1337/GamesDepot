@@ -78,8 +78,6 @@ export class ApiService {
     return arr;
   }
 
-
-
   async getTrendingGames() {
     const arr: any = [];
     let games: any = [];
@@ -118,5 +116,34 @@ export class ApiService {
     const docRef = doc(db, 'games', id);
     await updateDoc(docRef, data)
     this.router.navigate(['game/',id])
+  }
+
+  async getAllGames(page: number){
+    let arr: any = []
+    const db = getFirestore();
+    const snapshot = await getDocs(collection(db, 'games'))
+    snapshot.forEach((doc) => {
+      const id = doc.id;
+      const data = doc.data();
+      data['id'] = id;
+      arr.push(data);
+    })
+    
+    if(page == 1){
+      const data = arr.slice(0, 12)
+        
+        return data
+    }else if(page == 2) {
+      const data = arr.slice(12, 24)
+        
+        return data
+    }else if(page == 3) {
+        const data = arr.slice(24, 36)
+        
+        return data
+    }
+    
+    
+    // return arr
   }
 }
