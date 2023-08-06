@@ -25,14 +25,19 @@ export class AuthActivate implements CanActivate{
         return this.isLogedin()
     }
 
-    isLogedin(): boolean {
-      let isLoged = false
+    isLogedin(): any {
       if (!!localStorage.getItem('userId')) {
-        this.authService.isThisUserExisting(localStorage.getItem('userId')).then(res => isLoged = res)
-        return isLoged
+        this.authService.isThisUserExisting(localStorage.getItem('userId')).then(res =>  {
+          if(res){
+            return true
+          } else {
+            return false
+          }
+        })
+        
       } else {
-        isLoged = false
-        return isLoged
+        
+        return false
       }
     }
 
