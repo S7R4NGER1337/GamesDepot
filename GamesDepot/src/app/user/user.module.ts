@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user-routing.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RouterModule } from '@angular/router';
@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     UserRoutingModule
   ],
   exports: [
