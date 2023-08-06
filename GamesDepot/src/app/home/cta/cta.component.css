@@ -2,6 +2,13 @@
     position: relative;
   }
   
+h6{
+  font-size: 21px;
+  padding: 12px;
+}
+h5{
+  font-size: 19px;
+}
   .cta::after {
     background-image: url(/assets/images/cta-bg.jpg);
     max-width: 550px;
