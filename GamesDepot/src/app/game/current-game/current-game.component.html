@@ -22,7 +22,7 @@
           <span class="price">${{game.price}}</span>
           <p>{{game.description}}</p>
 
-          <form id="qty" action="#">
+          <form *ngIf="isLoged" id="qty" action="#">
             <button *ngIf="!isOwner" type="submit" (click)="addToCart(game.id, game.name)" ><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
             <button *ngIf="isOwner" type="button" routerLink="/game/edit/{{game.id}}" > EDIT</button>
             <button *ngIf="isOwner"type="button" (click)="addToCart(game.id, game.name)" > DELETE</button>
@@ -33,7 +33,7 @@
             <li routerLink="/user/{{ownerId}}" ><span>OwnerProfile</span>{{ownerName}}</li>
 
             <!-- change genre link -->
-            <li><span>Genre:</span> <a>{{game.genre}}</a></li>
+            <li [routerLink]="['/game/shop']" [queryParams]="{ category: game.genre}" ><span>Genre:</span> <a>{{game.genre}}</a></li>
           </ul>
         </div>
         <div class="col-lg-12">

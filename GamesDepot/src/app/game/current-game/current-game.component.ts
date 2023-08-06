@@ -12,6 +12,7 @@ import { limitToFirst } from 'firebase/database';
 export class CurrentGameComponent implements OnInit{
   game: any = {}
   isOwner = false
+  isLoged = false
   ownerName = ''
   ownerId = ''
 
@@ -20,6 +21,7 @@ export class CurrentGameComponent implements OnInit{
   ngOnInit(): void {
     this.getGame()
     this.addView()
+    this.isLogedin()
     window.scrollTo(0, 0)
   }
 
@@ -50,5 +52,15 @@ export class CurrentGameComponent implements OnInit{
 
   addToCart(id: string, name: string){
     sessionStorage.setItem(`${name}`, id)
+  }
+
+  isLogedin() {
+    if (!!localStorage.getItem('userId')) {
+      this.authService.isThisUserExisting(localStorage.getItem('userId')).then(res => this.isLoged = res)
+      return
+    } else {
+      this.isLoged = false
+      return
+    }
   }
 }
