@@ -20,6 +20,7 @@ export class ShopComponent implements OnInit {
   
   page = 1
   category = ''
+  route = ''
 
   renderGames(){
     let page = 1
@@ -33,11 +34,14 @@ export class ShopComponent implements OnInit {
       genre = params.get('category')
       this.category = genre
     })
+
     this.activatedRoute.queryParamMap.subscribe(params => {
       if(params.keys[0] == 'category'){
         this.apiService.getGamesByCategory(genre, page).then(res => this.allGames = res)
+        this.route = 'category'
       } else {
         this.apiService.getAllGames(page).then(res => this.allGames = res)
+        this.route = 'page'
       }
     })
    
