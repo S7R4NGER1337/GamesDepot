@@ -10,6 +10,7 @@ const routes: Routes = [
     {
         path: 'create',
         component: CreateGameComponent,
+        canActivate: [AuthActivate]
     },
     {
         path: 'shop',
@@ -21,7 +22,8 @@ const routes: Routes = [
     },
     {
         path: 'edit/:gameId',
-        component: EditGameComponent
+        component: EditGameComponent,
+        canActivate: [AuthActivate]
     },
 ]
 
