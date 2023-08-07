@@ -1,8 +1,6 @@
 <body style="background-image: url('/assets/images/banner-bg.jpg'); background-size: cover;">
 <div class="container">
     <div class="profile-card">
-
-        <div class="profile-picture"><!-- You can put the actual profile picture here --></div>
         
         <div class="profile-name">{{user.name}}</div>
         <div class="profile-info">
@@ -15,7 +13,7 @@
     <div  class="items-container">
         <div *ngFor="let game of games" class="item-card">
 
-                <img routerLink="/game/{{game['id']}}" src="{{game['imageUrl']}}" width="90" height="250" >
+                <img routerLink="/game/{{game['id']}}" src="{{game['imageUrl']}}" width="90" height="350" >
 
             <div class="item-name">{{game['name']}}</div>
         </div>

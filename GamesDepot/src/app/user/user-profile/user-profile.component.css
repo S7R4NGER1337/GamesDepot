@@ -58,10 +58,12 @@ p{
 .profile-name {
     font-size: 24px;
     font-weight: bold;
+    text-align: center;
     margin-bottom: 10px;
 }
 
 .profile-info {
+    text-align: center;
     font-size: 16px;
     color: black;
 }
@@ -76,23 +78,23 @@ p{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 900px; /* Adjust this value to control the maximum width of the item container */
-    margin: 30px auto; /* Center the item container horizontally */
+    max-width: 1200px; /* Adjust this value to control the maximum width of the item container */
+    margin: 35px auto; /* Center the item container horizontally */
 }
 
 .item-card {
-    flex: 0 0 calc(15% + 30px); /* Each item card will take 25% of the width minus 20px for margin */
+    flex: 0 0 calc(25% + 30px); /* Each item card will take 25% of the width minus 20px for margin */
     background-color: transparent; /* make color obrder*/
-    border-radius: 8px;
+    border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding:10px;
-    margin: 30px; /* Add margin to create space between items */
+    margin: 20px; /* Add margin to create space between items */
     text-align: center; /* Center the text inside the item card */
 }
 
 .item-image {
-    width: 100%;
-    padding-top: 100%; /* Maintain a square aspect ratio */
+    width: 50%;
+    padding-top: 200%; /* Maintain a square aspect ratio */
     border-radius: 8px;
     background-color: #ccc;
 }
