@@ -22,7 +22,8 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         localStorage.setItem('userId', user.uid)
-        this.postUserIdInDb(user.uid, name)
+        console.log('email in register', email);
+        this.postUserIdInDb(user.uid, name, email)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -81,9 +82,12 @@ export class AuthService {
   }
 
 
-  async postUserIdInDb(id: string, name: string){
+  async postUserIdInDb(id: string, name: string, email: string){
       const collectionInstance = collection(this.fs, 'users')
-      await addDoc(collectionInstance, {id, name}).then(() => {
+      console.log(name, email);
+      
+      await addDoc(collectionInstance, {id, name, email}).then(() => {
+        location.reload()
         this.router.navigate(['/'])
       }
      ).catch((err)=>console.log(err))

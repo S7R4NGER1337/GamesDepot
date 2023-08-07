@@ -40,7 +40,7 @@ export class RegisterComponent {
     }
     
     this.authService.register(email, password, name)
-    this.router.navigate(['home'])
+    this.router.navigate([''])
   }
   
 }
