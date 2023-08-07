@@ -106,6 +106,11 @@ export class ApiService {
       myObj = res;
     });
 
+    
+    if(Number.isNaN(myObj[0].views)){
+      myObj[0].views = 0
+    }
+
     const update = { views: Number(myObj[0].views) + 1 };
 
     updateDoc(docRef, update);
