@@ -56,7 +56,7 @@ export class ApiService {
     const docRef = doc(db, 'games', id);
     const docSnap = await getDoc(docRef);
     const data = docSnap.data();
-
+    data!['id'] = docSnap.id
     arr.push(data, id);
 
     return arr;

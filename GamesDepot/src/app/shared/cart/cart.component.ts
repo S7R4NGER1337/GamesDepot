@@ -88,8 +88,8 @@ export class CartComponent implements OnInit {
 
         this.games.forEach((game: any) => {    
           codes += `
-          ${game.name}: ${game.code}`
-          console.log(codes);   
+          ${game.name}: ${game.code}`        
+          this.apiService.deleteGame(game.id)
         })
 
         confirm(codes)
