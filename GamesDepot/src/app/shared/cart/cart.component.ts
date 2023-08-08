@@ -84,10 +84,9 @@ export class CartComponent implements OnInit {
       },
       onClientAuthorization: (data) => {
 
-        confirm('yes ?')
+        confirm(this.games[0].code)
         sessionStorage.clear();
         window.location.reload()
-        
         this.router.navigate(['/home'])
         
         this.showSuccess = true;

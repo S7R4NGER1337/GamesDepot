@@ -19,7 +19,7 @@ export class CreateGameComponent {
       return
     }
 
-    const {name, imageUrl, description, price}: {name: string, imageUrl: string, description: string, price: number} = form.value
+    const {name, imageUrl, description, price, code}: {name: string, imageUrl: string, description: string, price: number, code: string} = form.value
 
     if(name == '' || imageUrl == '' || description == '' || price <= 0 || this.selectedValue == ''){
       return
@@ -36,7 +36,7 @@ export class CreateGameComponent {
       return
     }
     
-    this.apiService.addGame({name, imageUrl, description, price, ownerId, genre, views})
+    this.apiService.addGame({name, imageUrl, description, price, ownerId, genre, views, code})
 
     form.setValue({
       name: '',
