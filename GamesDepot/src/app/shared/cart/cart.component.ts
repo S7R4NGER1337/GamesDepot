@@ -84,7 +84,15 @@ export class CartComponent implements OnInit {
       },
       onClientAuthorization: (data) => {
 
-        confirm(this.games[0].code)
+        let codes = ''
+
+        this.games.forEach((game: any) => {    
+          codes += `
+          ${game.name}: ${game.code}`
+          console.log(codes);   
+        })
+
+        confirm(codes)
         sessionStorage.clear();
         window.location.reload()
         this.router.navigate(['/home'])
