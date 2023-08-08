@@ -25,7 +25,7 @@
           <form *ngIf="isLoged" id="qty" action="#">
             <button *ngIf="!isOwner" type="submit" (click)="addToCart(game.id, game.name)" ><i class="fa fa-shopping-bag"></i> ADD TO CART</button>
             <button *ngIf="isOwner" type="button" routerLink="/game/edit/{{game.id}}" > EDIT</button>
-            <button *ngIf="isOwner"type="button" (click)="addToCart(game.id, game.name)" > DELETE</button>
+            <button *ngIf="isOwner"type="button" (click)="deleteGame()" > DELETE</button>
           </form>
           <ul>
             

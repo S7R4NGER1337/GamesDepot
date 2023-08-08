@@ -3,6 +3,7 @@ import { Firestore } from '@angular/fire/firestore';
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -164,5 +165,11 @@ export class ApiService {
     });
 
     return arr;
+  }
+
+  async deleteGame(id: string) {
+    const db = getFirestore();
+    const docRef = doc(db, 'games', id);
+    await deleteDoc(docRef)
   }
 }

@@ -63,4 +63,14 @@ export class CurrentGameComponent implements OnInit{
       return
     }
   }
+
+  deleteGame(){
+    if(confirm('are you sure you want to delete game ?')){
+      const gameId = this.AR.snapshot.params['gameId']
+      this.apiService.deleteGame(gameId)
+      this.router.navigate([''])
+      return
+    }
+  
+  }
 }
