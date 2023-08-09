@@ -30,10 +30,10 @@
           <ul>
             
             <!-- fix owner profile -->
-            <li routerLink="/user/{{ownerId}}" ><span>OwnerProfile</span>{{ownerName}}</li>
+            <li routerLink="/user/{{ownerId}}" style="cursor: pointer;"><span>OwnerProfile</span>{{ownerName}}</li>
 
             <!-- change genre link -->
-            <li [routerLink]="['/game/shop']" [queryParams]="{ category: game.genre}" ><span>Genre:</span> <a>{{game.genre}}</a></li>
+            <li [routerLink]="['/game/shop']" [queryParams]="{ category: game.genre}" style="cursor: pointer;" ><span>Genre:</span> <a>{{game.genre}}</a></li>
           </ul>
         </div>
         <div class="col-lg-12">

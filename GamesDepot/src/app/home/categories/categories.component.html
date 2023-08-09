@@ -14,7 +14,7 @@
         
         <div *ngFor="let game of games" class="col-lg col-sm-6 col-xs-12">
 
-          <div [routerLink]="['/game/shop']" [queryParams]="{ category: game.genre}" class="item">
+          <div style="cursor: pointer;" [routerLink]="['/game/shop']" [queryParams]="{ category: game.genre}" class="item">
             <div *ngIf="!isLoading">
             <h4>{{game.genre}}</h4>
             <div class="thumb" >
