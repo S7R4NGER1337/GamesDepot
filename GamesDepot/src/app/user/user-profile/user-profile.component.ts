@@ -29,7 +29,6 @@ export class UserProfileComponent implements OnInit{
       this.user = res[0]
       this.apiService.getGameByOwnerId(id).then((res) => {
         this.games = res
-        console.log(res);
         
         this.user.games = res.length
       })

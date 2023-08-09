@@ -37,12 +37,10 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         localStorage.setItem('userId', user.uid);
-        console.log('email in register', email);
         this.postUserIdInDb(user.uid, name, email);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
         if(errorMessage == 'Firebase: Error (auth/email-already-in-use).'){
           alert('Email already exists')
           return
@@ -105,7 +103,6 @@ export class AuthService {
 
   async postUserIdInDb(id: string, name: string, email: string) {
     const collectionInstance = collection(this.fs, 'users');
-    console.log(name, email);
 
     await addDoc(collectionInstance, { id, name, email })
       .then(() => {
