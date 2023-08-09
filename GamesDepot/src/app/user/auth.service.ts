@@ -4,10 +4,25 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, linkWithPhoneNumber } from 'firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  linkWithPhoneNumber,
+} from 'firebase/auth';
 
-import { getDatabase, ref, set } from "firebase/database";
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { getDatabase, ref, set } from 'firebase/database';
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -21,14 +36,18 @@ export class AuthService {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        localStorage.setItem('userId', user.uid)
+        localStorage.setItem('userId', user.uid);
         console.log('email in register', email);
-        this.postUserIdInDb(user.uid, name, email)
+        this.postUserIdInDb(user.uid, name, email);
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
+        if(errorMessage == 'Firebase: Error (auth/email-already-in-use).'){
+          alert('Email already exists')
+          return
+        }
+        this.router.navigate([''])
       });
   }
 
@@ -38,32 +57,35 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         localStorage.setItem('userId', user.uid);
-        this.router.navigate([''])
-        location.reload()
+        this.router.navigate(['']);
+        location.reload();
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
-      }); 
+        if (errorMessage == 'Firebase: Error (auth/user-not-found).') {
+          alert('Incorrect email or password');
+          return;
+        }
+        this.router.navigate(['']);
+      });
   }
 
   logout(): void {
-    localStorage.clear()
-    sessionStorage.clear()
+    localStorage.clear();
+    sessionStorage.clear();
   }
 
   async isThisUserExisting(uid: string | null) {
-    const app = initializeApp(environment.firebase)
-    const db = getFirestore(app)
-    const q = query(collection(db, 'users'), where('id', '==', uid))
-    const snapshot = await getDocs(q)
+    const app = initializeApp(environment.firebase);
+    const db = getFirestore(app);
+    const q = query(collection(db, 'users'), where('id', '==', uid));
+    const snapshot = await getDocs(q);
 
-    if(snapshot.size > 0) {
-      return true
+    if (snapshot.size > 0) {
+      return true;
     } else {
-      return false
+      return false;
     }
-
   }
 
   async getUerDataById(id: string) {
@@ -74,35 +96,32 @@ export class AuthService {
     const snapshot = await getDocs(q);
     snapshot.forEach((doc) => {
       const data = doc.data();
-      
+
       arr.push(data);
     });
 
-   return arr
+    return arr;
   }
 
+  async postUserIdInDb(id: string, name: string, email: string) {
+    const collectionInstance = collection(this.fs, 'users');
+    console.log(name, email);
 
-  async postUserIdInDb(id: string, name: string, email: string){
-      const collectionInstance = collection(this.fs, 'users')
-      console.log(name, email);
-      
-      await addDoc(collectionInstance, {id, name, email}).then(() => {
-        location.reload()
-        this.router.navigate(['/'])
-      }
-     ).catch((err)=>console.log(err))
+    await addDoc(collectionInstance, { id, name, email })
+      .then(() => {
+        location.reload();
+        this.router.navigate(['/']);
+      })
+      .catch((err) => console.log(err));
   }
 
   isLogedin() {
-   const isLocalStorageFull = !!localStorage.getItem('userId')
-   
-   if(isLocalStorageFull){
-    return true
-    
-   } else {
-    return false
-    
-   }
+    const isLocalStorageFull = !!localStorage.getItem('userId');
+
+    if (isLocalStorageFull) {
+      return true;
+    } else {
+      return false;
+    }
   }
-  
 }
