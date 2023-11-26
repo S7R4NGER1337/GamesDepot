@@ -34,7 +34,7 @@ To start exploring and purchasing game codes on Games Depot, follow these steps:
 
 ### Installation
 
-Games Depot is a web-based platform, so there's no installation required. Simply open your preferred web browser and visit [https://gamesdepot1337.web.app/home](https://gamesdepot1337.web.app/home) to begin your gaming journey.
+Games Depot is a web-based platform, so there's no installation required. Simply open your preferred web browser and visit [https://gamesdepot-53e46.web.app/](https://gamesdepot-53e46.web.app/) to begin your gaming journey.
 
 ## Browsing and Shopping
 
